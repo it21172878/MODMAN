@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const coordinatorSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
-    cooNo: {
+    userID: {
       type: String,
       required: true,
       unique: true,
@@ -17,6 +17,11 @@ const coordinatorSchema = new mongoose.Schema(
       lowercase: true,
       required: true,
     },
+    nicNo: {
+      type: String,
+      unique: true,
+      required: true,
+    },
     mobileNo: {
       type: String,
       required: true,
@@ -26,12 +31,19 @@ const coordinatorSchema = new mongoose.Schema(
       require: true,
     },
     role: {
-      type: Number,
-      default: 0, // 0 for Coordinator and 1 for Student
+      type: String,
+      enum: [
+        'projectCoordinator',
+        'projectMembers',
+        'Examiner',
+        'Supervisor',
+        'Student',
+      ],
+      default: 'Student',
     },
   },
   { timestamps: true }
 );
 
-const coordinatorModel = mongoose.model('coordinators', coordinatorSchema);
-export default coordinatorModel;
+const userModel = mongoose.model('users', userSchema);
+export default userModel;

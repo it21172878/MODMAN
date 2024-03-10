@@ -1,20 +1,23 @@
 import { comparePasswords, hashPassword } from '../helpers/authHelper.js';
-import coordinatorModel from '../models/coordinatorModel.js';
+import userModel from '../models/userModel.js';
 import JWT from 'jsonwebtoken';
 
 export const registerController = async (req, res) => {
   try {
     // Get DOM elements.
-    const { cooNo, fullName, email, mobileNo, password } = req.body;
+    const { userID, fullName, email, nicNo, mobileNo, password } = req.body;
     // validations
-    if (!cooNo) {
-      res.send({ error: 'Coordinator Number is required' });
+    if (!userID) {
+      res.send({ error: 'User ID is required' });
     }
     if (!fullName) {
       res.send({ error: 'Your Name is required' });
     }
     if (!email) {
       res.send({ error: 'Email is required' });
+    }
+    if (!nicNo) {
+      res.send({ error: 'NIC Number is required' });
     }
     if (!mobileNo) {
       res.send({ error: 'Mobile Number is required' });
@@ -24,20 +27,21 @@ export const registerController = async (req, res) => {
     }
 
     //  Checking for existing user with the same username and email address.
-    const existingCoordinator = await coordinatorModel.findOne({ cooNo });
-    // existing Coordinator
-    if (existingCoordinator) {
+    const existingUser = await userModel.findOne({ userID });
+    // existing user
+    if (existingUser) {
       return res
         .status(200)
         .send({ success: true, message: 'Already register please login' });
     }
-    // register coordinator
+    // register user
     const hashedPassword = await hashPassword(password);
     // save
-    const coordinator = await new coordinatorModel({
-      cooNo,
+    const user = await new userModel({
+      userID,
       fullName,
       email,
+      nicNo,
       mobileNo,
       password: hashedPassword,
     }).save();
@@ -45,7 +49,7 @@ export const registerController = async (req, res) => {
     res.status(201).send({
       success: true,
       message: 'Registration Successful',
-      data: coordinator,
+      data: user,
     });
   } catch (error) {
     console.log(error);
@@ -66,40 +70,45 @@ export const loginController = async (req, res) => {
         .status(404)
         .send({ success: false, message: 'Invalid Email or Password' });
     }
-    // check coordinator
-    const coordinator = await coordinatorModel.findOne({ email });
-    if (!coordinator) {
+    // check user
+    const user = await userModel.findOne({ email });
+    if (!user) {
       return res
         .status(404)
         .send({ success: false, message: 'Email is not registered' });
     }
     // compare passwords
-    const match = await comparePasswords(password, coordinator.password);
+    const match = await comparePasswords(password, user.password);
     if (!match) {
       return res
         .status(200)
         .send({ success: false, message: 'Wrong Password!' });
     }
     // JWT
-    const token = await JWT.sign(
-      { _id: coordinator._id },
-      process.env.JWT_SECRET,
-      { expiresIn: '7d' }
-    );
+    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '7d',
+    });
     res.status(200).send({
       success: true,
       message: 'Logged In Successfully',
-      coordinator: {
-        cooNo: coordinator.cooNo,
-        fullName: coordinator.fullName,
-        email: coordinator.email,
-        mobileNo: coordinator.mobileNo,
-        password: coordinator.password,
+      user: {
+        userID: user.userID,
+        fullName: user.fullName,
+        email: user.email,
+        nicNo: user.nicNo,
+        mobileNo: user.mobileNo,
+        password: user.password,
+        role: user.role,
       },
       token,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).send({ success: false, message: 'Wrror in Login', error });
+    res.status(500).send({ success: false, message: 'Error in Login', error });
   }
+};
+
+export const testController = (req, res) => {
+  console.log('test controller');
+  res.send('Protected route');
 };
