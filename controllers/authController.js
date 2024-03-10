@@ -1,5 +1,6 @@
-import { hashPassword } from '../helpers/authHelper.js';
+import { comparePasswords, hashPassword } from '../helpers/authHelper.js';
 import coordinatorModel from '../models/coordinatorModel.js';
+import JWT from 'jsonwebtoken';
 
 export const registerController = async (req, res) => {
   try {
@@ -53,5 +54,52 @@ export const registerController = async (req, res) => {
       message: 'Error in Registeration',
       error,
     });
+  }
+};
+
+export const loginController = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // Validate input fields
+    if (!email || !password) {
+      return res
+        .status(404)
+        .send({ success: false, message: 'Invalid Email or Password' });
+    }
+    // check coordinator
+    const coordinator = await coordinatorModel.findOne({ email });
+    if (!coordinator) {
+      return res
+        .status(404)
+        .send({ success: false, message: 'Email is not registered' });
+    }
+    // compare passwords
+    const match = await comparePasswords(password, coordinator.password);
+    if (!match) {
+      return res
+        .status(200)
+        .send({ success: false, message: 'Wrong Password!' });
+    }
+    // JWT
+    const token = await JWT.sign(
+      { _id: coordinator._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+    res.status(200).send({
+      success: true,
+      message: 'Logged In Successfully',
+      coordinator: {
+        cooNo: coordinator.cooNo,
+        fullName: coordinator.fullName,
+        email: coordinator.email,
+        mobileNo: coordinator.mobileNo,
+        password: coordinator.password,
+      },
+      token,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false, message: 'Wrror in Login', error });
   }
 };
