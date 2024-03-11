@@ -18,9 +18,11 @@ export const isProjectCoordinator = async (req, res, next) => {
   try {
     const user = await userModel.findById(req.user._id);
     if (user.role !== 'projectCoordinator') {
-      return res
-        .status(401)
-        .send({ success: false, message: 'Unathorized access' });
+      return res.status(401).send({
+        success: false,
+        message: 'Unathorized access',
+        user: { role: user.role },
+      });
     } else {
       next();
     }
