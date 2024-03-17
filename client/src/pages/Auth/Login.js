@@ -6,10 +6,12 @@ import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useAuth } from '../../context/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
 
   // form function
@@ -22,6 +24,12 @@ const Login = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem('auth', JSON.stringify(res.data));
         navigate('/');
       } else {
         toast.error(res.data.message);
