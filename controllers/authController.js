@@ -8,22 +8,22 @@ export const registerController = async (req, res) => {
     const { userID, fullName, email, nicNo, mobileNo, password } = req.body;
     // validations
     if (!userID) {
-      res.send({ error: 'User ID is required' });
+      res.send({ message: 'User ID is required' });
     }
     if (!fullName) {
-      res.send({ error: 'Your Name is required' });
+      res.send({ message: 'Your Name is required' });
     }
     if (!email) {
-      res.send({ error: 'Email is required' });
+      res.send({ message: 'Email is required' });
     }
     if (!nicNo) {
-      res.send({ error: 'NIC Number is required' });
+      res.send({ message: 'NIC Number is required' });
     }
     if (!mobileNo) {
-      res.send({ error: 'Mobile Number is required' });
+      res.send({ message: 'Mobile Number is required' });
     }
     if (!password) {
-      res.send({ error: 'Password is required' });
+      res.send({ message: 'Password is required' });
     }
 
     //  Checking for existing user with the same username and email address.
@@ -32,7 +32,7 @@ export const registerController = async (req, res) => {
     if (existingUser) {
       return res
         .status(200)
-        .send({ success: true, message: 'Already register please login' });
+        .send({ success: false, message: 'Already register please login' });
     }
     // register user
     const hashedPassword = await hashPassword(password);
