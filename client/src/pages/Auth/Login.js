@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from './../../components/Layout/Layout';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
@@ -13,6 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // form function
   const handleSubmit = async (e) => {
@@ -30,7 +31,7 @@ const Login = () => {
           token: res.data.token,
         });
         localStorage.setItem('auth', JSON.stringify(res.data));
-        navigate('/');
+        navigate(location.state || '/');
       } else {
         toast.error(res.data.message);
       }
