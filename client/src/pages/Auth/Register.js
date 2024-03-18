@@ -75,6 +75,7 @@ const Register = () => {
   const [nicNo, setNicNo] = useState('');
   const [mobileNo, setMobileNo] = useState('');
   const [password, setPassword] = useState('');
+  const [answer, setAnswer] = useState('');
   const navigate = useNavigate();
 
   // form function
@@ -88,6 +89,7 @@ const Register = () => {
         nicNo,
         mobileNo,
         password,
+        answer,
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
@@ -163,6 +165,16 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
+                required
+              ></input>
+              <RiLockPasswordFill className="icon" />
+            </div>
+            <div className="input-box">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                placeholder="What is your favourite color?"
                 required
               ></input>
               <RiLockPasswordFill className="icon" />

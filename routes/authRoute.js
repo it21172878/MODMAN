@@ -3,6 +3,7 @@ import {
   registerController,
   loginController,
   testController,
+  forgotPasswordController,
 } from '../controllers/authController.js';
 import {
   isProjectCoordinator,
@@ -17,9 +18,12 @@ const router = express.Router();
 router.post('/register', registerController);
 // LOGIN
 router.post('/login', loginController);
+// FORGOT PASSWORD || POST
+router.post('/forgot-password', forgotPasswordController);
+
 // TEST ROUTE
 router.get('/test', requireSignIn, isProjectCoordinator, testController);
-// protected route auth
+// PROTECTED ROUTE AUTH
 router.get('/user-auth', requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });

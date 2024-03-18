@@ -5,7 +5,8 @@ import JWT from 'jsonwebtoken';
 export const registerController = async (req, res) => {
   try {
     // Get DOM elements.
-    const { userID, fullName, email, nicNo, mobileNo, password } = req.body;
+    const { userID, fullName, email, nicNo, mobileNo, password, answer } =
+      req.body;
     // validations
     if (!userID) {
       res.send({ message: 'User ID is required' });
@@ -24,6 +25,9 @@ export const registerController = async (req, res) => {
     }
     if (!password) {
       res.send({ message: 'Password is required' });
+    }
+    if (!answer) {
+      res.send({ message: 'Answer is required' });
     }
 
     //  Checking for existing user with the same username and email address.
@@ -44,6 +48,7 @@ export const registerController = async (req, res) => {
       nicNo,
       mobileNo,
       password: hashedPassword,
+      answer,
     }).save();
     // send response
     res.status(201).send({
@@ -108,7 +113,50 @@ export const loginController = async (req, res) => {
   }
 };
 
+// forgotPasswordController
+export const forgotPasswordController = async (req, res) => {
+  try {
+    const { email, answer, newPassword } = req.body;
+    if (!email) {
+      res.status(400).send({ message: 'Email is required' });
+    }
+
+    if (!answer) {
+      res.status(400).send({ message: 'Answer is required' });
+    }
+
+    if (!newPassword) {
+      res.status(400).send({ message: 'New Password is required' });
+    }
+    // check
+    const user = await userModel.findOne({ email, answer });
+    // validation
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: 'Wrong Email Or Answer',
+      });
+    }
+    const hashed = await hashPassword(newPassword);
+    await userModel.findByIdAndUpdate(user._id, { password: hashed });
+    res.status(200).send({
+      success: true,
+      message: 'Password Reset Successfully',
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: 'Something went wrong', error });
+  }
+};
+
+// test controller
 export const testController = (req, res) => {
-  console.log('test controller');
-  res.send('Protected route');
+  try {
+    res.send('Protected route');
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
 };

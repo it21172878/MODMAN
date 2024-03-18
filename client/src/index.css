@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  justify-content: baseline;
+  align-items: center;
 }
 
 /* font-family: 'Poppins', sans-serif;
@@ -11,6 +13,8 @@ font-family: 'Playfair Display', serif; */
 
 /* navbar css  */
 .navbar {
+  padding-right: 65px;
+  padding-left: 65px;
   background-color: rgb(61, 61, 61);
   font-family: 'Poppins', sans-serif;
   align-items: space-between;
@@ -23,7 +27,7 @@ font-family: 'Playfair Display', serif; */
 }
 
 .nav-link {
-  font-weight: 300 !important;
+  font-weight: 900 !important;
   color: aliceblue;
 }
 .nav-link:hover {
