@@ -6,7 +6,10 @@ import {
   forgotPasswordController,
 } from '../controllers/authController.js';
 import {
+  isExaminer,
   isProjectCoordinator,
+  isProjectMember,
+  isSupervisor,
   requireSignIn,
 } from '../middlewares/authMiddleware.js';
 
@@ -23,8 +26,35 @@ router.post('/forgot-password', forgotPasswordController);
 
 // TEST ROUTE
 router.get('/test', requireSignIn, isProjectCoordinator, testController);
-// PROTECTED ROUTE AUTH
+// PROTECTED USER ROUTE AUTH
 router.get('/user-auth', requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+// PROTECTED PROJECT COORDINATOR ROUTE AUTH
+router.get(
+  '/projectcoordinator-auth',
+  requireSignIn,
+  isProjectCoordinator,
+  (req, res) => {
+    res.status(200).send({ ok: true });
+  }
+);
+// PROTECTED SUPERVISOR ROUTE AUTH
+router.get('/supervisor-auth', requireSignIn, isSupervisor, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+// PROTECTED EXAMINER ROUTE AUTH
+router.get('/examiner-auth', requireSignIn, isExaminer, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+// PROTECTED PROJECT MEMBER ROUTE AUTH
+router.get(
+  '/projectmember-auth',
+  requireSignIn,
+  isProjectMember,
+  (req, res) => {
+    res.status(200).send({ ok: true });
+  }
+);
 export default router;

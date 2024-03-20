@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: [
         'projectCoordinator',
-        'projectMembers',
+        'projectMember',
         'Examiner',
         'Supervisor',
         'Student',
