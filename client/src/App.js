@@ -7,7 +7,7 @@ import PageNotFound from './pages/PageNotFound';
 import Register from './pages/Auth/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/Auth/Login';
-import Dashboard from './pages/user/Dashboard';
+// import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
 import ForgotPasssword from './pages/Auth/ForgotPassword';
 import ProjectCoordinatorRoute from './components/Routes/ProjectCoordinatorRoute';
@@ -18,6 +18,7 @@ import ExaminerRoute from './components/Routes/ExaminerRoute';
 import ExaminerDashboard from './pages/Examiner/ExaminerDashboard';
 import ProjectMemberRoute from './components/Routes/ProjectMemberRoute';
 import ProjectMemberDashboard from './pages/ProjectMember/ProjectMemberDashboard';
+import Dashboard from './pages/user/Dashboard';
 
 function App() {
   return (
