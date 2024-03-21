@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  justify-content: baseline;
-  align-items: center;
+  /* justify-content: baseline;
+  align-items: center; */
 }
 
 /* font-family: 'Poppins', sans-serif;

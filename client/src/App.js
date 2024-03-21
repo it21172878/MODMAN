@@ -19,6 +19,8 @@ import ExaminerDashboard from './pages/Examiner/ExaminerDashboard';
 import ProjectMemberRoute from './components/Routes/ProjectMemberRoute';
 import ProjectMemberDashboard from './pages/ProjectMember/ProjectMemberDashboard';
 import Dashboard from './pages/user/Dashboard';
+import CreateProjectGroup from './pages/user/CreateProjectGroup';
+import MyAssignment from './pages/user/MyAssignment';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
+          <Route path="user/project-group" element={<CreateProjectGroup />} />
+          <Route path="user/assignment" element={<MyAssignment />} />
         </Route>
         <Route path="/dashboard" element={<ProjectCoordinatorRoute />}>
           <Route

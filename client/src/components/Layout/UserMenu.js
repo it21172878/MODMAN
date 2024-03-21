@@ -14,12 +14,7 @@ const UserMenu = () => {
           >
             Project Group
           </NavLink>
-          <NavLink
-            to="/dashboard/user/project-group"
-            className="list-group-item list-group-item-action "
-          >
-            Project Group
-          </NavLink>
+
           <NavLink
             to="/dashboard/user/assignment"
             className="list-group-item list-group-item-action "
