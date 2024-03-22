@@ -4,6 +4,7 @@ import {
   loginController,
   testController,
   forgotPasswordController,
+  getAllUsersController,
 } from '../controllers/authController.js';
 import {
   isExaminer,
@@ -30,6 +31,9 @@ router.get('/test', requireSignIn, isProjectCoordinator, testController);
 router.get('/user-auth', requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+//ALL USERS
+router.get('/users', requireSignIn, getAllUsersController);
 
 // PROTECTED PROJECT COORDINATOR ROUTE AUTH
 router.get(

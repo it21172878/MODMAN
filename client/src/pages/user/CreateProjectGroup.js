@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ import { MdEmail } from 'react-icons/md';
 import { PiIdentificationBadgeFill } from 'react-icons/pi';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import './createProjectGroup.css';
+import { useAuth } from '../../context/auth';
 
 const CreateProjectGroup = () => {
   const [userName, setUserName] = useState('');
@@ -25,6 +26,8 @@ const CreateProjectGroup = () => {
   const [researchGroup, setResearchGroup] = useState('');
   const [supervisorName, setSupervisorName] = useState('');
   const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const [auth, setAuth] = useAuth();
 
   // form function
   const handleSubmit = async (e) => {
@@ -55,6 +58,22 @@ const CreateProjectGroup = () => {
       toast.error('Something went wrong');
     }
   };
+
+  //getall users
+  const getAllUsers = async () => {
+    try {
+      const { data } = await axios.get('/api/v1/auth/users');
+      setUsers(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //lifecycle method
+  useEffect(() => {
+    if (auth?.token) getAllUsers();
+  }, [auth?.token]);
   return (
     // <Layout>
     //   <div className="container-flui m-3 b-3">
@@ -287,14 +306,17 @@ const CreateProjectGroup = () => {
                       <FaPhoneVolume className="icon" />
                     </div>
                     <div className="inputBox">
-                      <input
-                        type="text"
+                      <select
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
-                        placeholder="Specialization"
-                        required
-                      ></input>
-                      <RiLockPasswordFill className="icon" />
+                      >
+                        <option>IT</option>
+                        <option>SE</option>
+                        <option>IS</option>
+                        <option>CS</option>
+                        <option>DS</option>
+                        <option>CSNE</option>
+                      </select>
                     </div>
                   </div>
                   <div className="col1">
@@ -349,7 +371,7 @@ const CreateProjectGroup = () => {
                       ></input>
                       <RiLockPasswordFill className="icon" />
                     </div>
-                    <div className="inputBox">
+                    {/* <div className="inputBox">
                       <input
                         type="text"
                         value={supervisorName}
@@ -358,6 +380,19 @@ const CreateProjectGroup = () => {
                         required
                       ></input>
                       <RiLockPasswordFill className="icon" />
+                    </div> */}
+                    <div className="inputBox">
+                      <select
+                        value={supervisorName}
+                        onChange={(e) => setSupervisorName(e.target.value)}
+                      >
+                        <option>IT</option>
+                        <option>SE</option>
+                        <option>IS</option>
+                        <option>CS</option>
+                        <option>DS</option>
+                        <option>CSNE</option>
+                      </select>
                     </div>
                   </div>
 

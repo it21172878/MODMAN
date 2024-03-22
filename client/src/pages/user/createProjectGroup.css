@@ -68,6 +68,26 @@
   color: #fff;
   padding: 20px 45px 20px 20px;
 }
+.inputBox select {
+  position: relative;
+  width: 25rem;
+  height: 50px;
+  margin: 2px 0;
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 2px 4px 2px 15px;
+}
+.inputBox select option {
+  background: #202020;
+}
+.select_arrow {
+  margin: 200px;
+}
 .inputBox input::placeholder {
   color: #fff;
 }
