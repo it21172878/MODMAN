@@ -88,3 +88,19 @@ export const groupRegisterController = async (req, res) => {
     });
   }
 };
+
+//all project groupsuser
+export const getAllProjectGroupsController = async (req, res) => {
+  try {
+    await groupRegisterModel.find().then((groups) => {
+      res.json(groups);
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'Error While Geting Groups',
+      error,
+    });
+  }
+};
