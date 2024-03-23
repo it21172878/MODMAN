@@ -32,7 +32,7 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               MOD
-              <span className="inline-block text-secondary">MAN</span>
+              <span className="inline-block ">MAN</span>
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">

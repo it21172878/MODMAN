@@ -75,168 +75,6 @@ const CreateProjectGroup = () => {
     if (auth?.token) getAllUsers();
   }, [auth?.token]);
   return (
-    // <Layout>
-    //   <div className="container-flui m-3 b-3">
-    //     <div className="row">
-    //       <div className="col-md-3">
-    //         <UserMenu />
-    //       </div>
-    //       <div className="col-md-9">
-    //         <h1>Join to Project Group</h1>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </Layout>
-
-    // <Layout>
-    //   <div className="container-flui m-3 b-3">
-    //     <div className="row">
-    //       <div className="col-md-3">
-    //         <UserMenu />
-    //       </div>
-    //       <div className="col-md-9">
-    //         <div className="wrapper">
-    //           <div className="wrapper2">
-    //             <form onSubmit={handleSubmit} action="">
-    //               <h1>Register Group</h1>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={userName}
-    //                   onChange={(e) => setUserName(e.target.value)}
-    //                   placeholder="Username"
-    //                   required
-    //                 ></input>
-    //                 <HiIdentification className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={regNo}
-    //                   onChange={(e) => setRegNo(e.target.value)}
-    //                   placeholder="Registration Number"
-    //                   required
-    //                 ></input>
-    //                 <FaUser className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={contactNo}
-    //                   onChange={(e) => setContactNo(e.target.value)}
-    //                   placeholder="Mobile Number"
-    //                   required
-    //                 ></input>
-    //                 <MdEmail className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="email"
-    //                   value={email}
-    //                   onChange={(e) => setEmail(e.target.value)}
-    //                   placeholder="Email Address"
-    //                   required
-    //                 ></input>
-    //                 <PiIdentificationBadgeFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={groupType}
-    //                   onChange={(e) => setGroupType(e.target.value)}
-    //                   placeholder="Your Group Type"
-    //                   required
-    //                 ></input>
-    //                 <FaPhoneVolume className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={specialization}
-    //                   onChange={(e) => setSpecialization(e.target.value)}
-    //                   placeholder="Specialization"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <h3>Project Group Details</h3>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={projectLeaderName}
-    //                   onChange={(e) => setProjectLeaderName(e.target.value)}
-    //                   placeholder="Enter Your Project Leader Name"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={projectLeaderRegNo}
-    //                   onChange={(e) => setProjectLeaderRegNo(e.target.value)}
-    //                   placeholder="Enter Your Project Leader Registration Number"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={projectTitle}
-    //                   onChange={(e) => setProjectTitle(e.target.value)}
-    //                   placeholder="Project Title Here"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={researchArea}
-    //                   onChange={(e) => setResearchArea(e.target.value)}
-    //                   placeholder="Research Area"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={researchGroup}
-    //                   onChange={(e) => setResearchGroup(e.target.value)}
-    //                   placeholder="Research Group Here"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <div className="input-box">
-    //                 <input
-    //                   type="text"
-    //                   value={supervisorName}
-    //                   onChange={(e) => setSupervisorName(e.target.value)}
-    //                   placeholder="Select Supervisor Name"
-    //                   required
-    //                 ></input>
-    //                 <RiLockPasswordFill className="icon" />
-    //               </div>
-    //               <button type="submit">Register</button>
-    //               <div className="login-link">
-    //                 {/* <p>
-    //                   have an account please{' '}
-    //                   <Link to="/login" className="login">
-    //                     login
-    //                   </Link>
-    //                 </p> */}
-    //               </div>
-    //             </form>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </Layout>
-
     <Layout>
       {/* <div className="container-fluid m-3 b-3"> */}
       <div className="container-fluid">
@@ -295,7 +133,28 @@ const CreateProjectGroup = () => {
                       ></input>
                       <PiIdentificationBadgeFill className="icon" />
                     </div>
-                    <div className="inputBox">
+                    <div className="radioBtn">
+                      <h6>Select your group type</h6>
+                      <input
+                        className="m"
+                        type="radio"
+                        value="REGULAR"
+                        id="REGULAR"
+                        onChange={(e) => setGroupType(e.target.value)}
+                        name={groupType}
+                      />
+                      <label for="regular">Regular</label>
+                      <input
+                        type="radio"
+                        value="JUNE"
+                        id="JUNE"
+                        onChange={(e) => setGroupType(e.target.value)}
+                        name={groupType}
+                      />
+                      <label for="june">June</label>
+                    </div>
+
+                    {/* <div className="inputBox">
                       <input
                         type="text"
                         value={groupType}
@@ -304,12 +163,13 @@ const CreateProjectGroup = () => {
                         required
                       ></input>
                       <FaPhoneVolume className="icon" />
-                    </div>
+                    </div> */}
                     <div className="inputBox">
                       <select
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
                       >
+                        <option>--select supervisor name--</option>
                         <option>IT</option>
                         <option>SE</option>
                         <option>IS</option>
@@ -371,27 +231,20 @@ const CreateProjectGroup = () => {
                       ></input>
                       <RiLockPasswordFill className="icon" />
                     </div>
-                    {/* <div className="inputBox">
-                      <input
-                        type="text"
-                        value={supervisorName}
-                        onChange={(e) => setSupervisorName(e.target.value)}
-                        placeholder="Select Supervisor Name"
-                        required
-                      ></input>
-                      <RiLockPasswordFill className="icon" />
-                    </div> */}
+
                     <div className="inputBox">
                       <select
                         value={supervisorName}
                         onChange={(e) => setSupervisorName(e.target.value)}
                       >
-                        <option>IT</option>
-                        <option>SE</option>
-                        <option>IS</option>
-                        <option>CS</option>
-                        <option>DS</option>
-                        <option>CSNE</option>
+                        <option>--select supervisor name--</option>
+                        {users.map((supervisor, index) => {
+                          if (supervisor.role === 'Supervisor') {
+                            return (
+                              <option key={index}>{supervisor.fullName}</option>
+                            );
+                          }
+                        })}
                       </select>
                     </div>
                   </div>

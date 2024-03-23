@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(../../../public/images/grpReg.jpg) no-repeat;
+  /* background: url(../../../public/images/grpReg.jpg) no-repeat; */
+  background-color: #ebeddf;
   background-size: cover;
   background-position: center;
 }
@@ -24,11 +25,7 @@
   justify-content: center;
   align-items: center;
 }
-.subTitle {
-  font-size: 222px;
-  display: flex;
-  text-align: right;
-}
+
 .wrap {
   margin-top: 5%;
   /* display: flex;
@@ -37,7 +34,7 @@
   background: transparent;
   backdrop-filter: blur(2px);
   width: 100%;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid #333a2f;
   padding: 10px;
   border-radius: 20px;
 }
@@ -62,10 +59,10 @@
   background: transparent;
   border: none;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #333a2f;
   border-radius: 40px;
   font-size: 16px;
-  color: #fff;
+  color: #333a2f;
   padding: 20px 45px 20px 20px;
 }
 .inputBox select {
@@ -74,25 +71,26 @@
   height: 50px;
   margin: 2px 0;
   background: transparent;
-  color: #fff;
+  color: #333a2f;
   border: none;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #333a2f;
   border-radius: 40px;
   font-size: 16px;
   padding: 2px 4px 2px 15px;
 }
 .inputBox select option {
-  background: #202020;
+  background: #333a2f;
+  color: #ebeddf;
 }
 .select_arrow {
   margin: 200px;
 }
 .inputBox input::placeholder {
-  color: #fff;
+  color: #333a2f;
 }
 .inputBox .icon {
-  color: #fff;
+  color: #333a2f;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -114,11 +112,13 @@
   font-weight: 700;
   margin-left: 10%;
   margin-top: 15px;
+  background: #333a2f;
+  color: #ebeddf;
 }
 .wrap button:hover {
-  color: #fff;
-  background: linear-gradient(to right, #57310e, #1f0f03);
-  border: solid 0.5px #fff;
+  color: #333a2f;
+  background: #ebeddf;
+  border: solid 0.5px #333a2f;
 }
 .wrap .login-link {
   font-size: 14.5px;
@@ -126,7 +126,7 @@
   margin: 20px 0 15px;
 }
 .wrap .login {
-  color: #333;
+  color: #333a2f;
   text-decoration: none;
   font-weight: 600;
 }
@@ -135,10 +135,26 @@
 }
 
 h3 {
-  color: #fff;
+  color: #333a2f;
   text-align: center;
   margin-bottom: 25px;
 }
 h6 {
-  color: #fff;
+  color: #333a2f;
+}
+form h6 {
+  color: #333a2f;
+  text-align: left;
+}
+.radioBtn {
+  color: #333a2f;
+  font-weight: 500;
+  padding-right: 240px;
+  margin-left: 45px;
+  /* margin-right: -50px; */
+}
+.radioBtn input {
+  color: #333a2f;
+  margin-right: 5px;
+  margin-left: 10px;
 }

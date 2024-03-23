@@ -2,12 +2,13 @@ import React from 'react';
 import Layout from './../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import { useAuth } from '../../context/auth';
+import './dashboard.css';
 
 const Dashboard = ({ children }) => {
   const [auth, setAuth] = useAuth();
   return (
     <Layout>
-      <div className="container-flui m-3 b-3">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />

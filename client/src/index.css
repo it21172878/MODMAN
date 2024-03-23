@@ -15,7 +15,8 @@ font-family: 'Playfair Display', serif; */
 .navbar {
   padding-right: 65px;
   padding-left: 65px;
-  background-color: rgb(61, 61, 61);
+  /* background-color: rgb(61, 61, 61); */
+  background-color: #333a2f;
   font-family: 'Poppins', sans-serif;
   align-items: space-between;
   font-size: 15px;
@@ -35,7 +36,7 @@ font-family: 'Playfair Display', serif; */
   color: rgb(151, 151, 151);
 }
 .dropdown-menu {
-  background-color: rgb(61, 61, 61);
+  background-color: #333a2f;
 }
 .dropdown-item {
   color: aliceblue;
@@ -49,6 +50,13 @@ font-family: 'Playfair Display', serif; */
   font-weight: 700;
   font-family: 'roboto', sans-serif;
   letter-spacing: 3px;
+  color: #ebeddf;
+}
+.navbar-brand span {
+  font-weight: 700;
+  font-family: 'roboto', sans-serif;
+  letter-spacing: 3px;
+  color: #8a964a;
 }
 
 .search-form {
@@ -83,13 +91,13 @@ font-family: 'Playfair Display', serif; */
 .footer {
   color: white;
   padding: 22px;
-  background: #000000; /* fallback for old browsers */
+  background: #333a2f; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #434343,
-    #000000
+    #333a2f,
+    #333a2f
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, #333a2f, #333a2f);
 }
 
 .footer a {

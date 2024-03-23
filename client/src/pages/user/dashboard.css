@@ -1,0 +1,14 @@
+.col-md-9 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background: url(../../../public/images/grpReg.jpg) no-repeat; */
+  background-color: #ebeddf;
+  background-size: cover;
+  background-position: center;
+}
+.card {
+  color: #ebeddf;
+  background-color: #333a2f;
+}
