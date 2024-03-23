@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 
-const MyAssignment = () => {
+const MyGroupDetails = () => {
   return (
     <Layout>
       <div className="container-fluid">
@@ -11,7 +11,7 @@ const MyAssignment = () => {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <h1>My Assignment</h1>
+            <h1>My Group Details</h1>
           </div>
         </div>
       </div>
@@ -19,4 +19,4 @@ const MyAssignment = () => {
   );
 };
 
-export default MyAssignment;
+export default MyGroupDetails;

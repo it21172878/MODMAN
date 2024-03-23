@@ -169,7 +169,7 @@ const CreateProjectGroup = () => {
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
                       >
-                        <option>--select supervisor name--</option>
+                        <option>--select your specialization--</option>
                         <option>IT</option>
                         <option>SE</option>
                         <option>IS</option>
@@ -222,14 +222,16 @@ const CreateProjectGroup = () => {
                       <RiLockPasswordFill className="icon" />
                     </div>
                     <div className="inputBox">
-                      <input
-                        type="text"
+                      <select
                         value={researchGroup}
                         onChange={(e) => setResearchGroup(e.target.value)}
-                        placeholder="Research Group Here"
-                        required
-                      ></input>
-                      <RiLockPasswordFill className="icon" />
+                      >
+                        <option>--select research group--</option>
+                        <option>Machine Learning</option>
+                        <option>Natural Language Processing</option>
+                        <option>Interlligent System</option>
+                        <option>Robotics</option>
+                      </select>
                     </div>
 
                     <div className="inputBox">

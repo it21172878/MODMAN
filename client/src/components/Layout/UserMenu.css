@@ -1,0 +1,33 @@
+h4 {
+  color: #ededed;
+  margin-top: 1rem;
+}
+.text-center {
+  margin-top: 1rem;
+}
+.list-group {
+  background-color: #333a2f;
+  margin-top: 1rem;
+  color: #ededed;
+  border: none;
+  border-radius: 0%;
+  width: 100%;
+  padding: 0.5rem;
+}
+.list-group-item {
+  background-color: #333a2f;
+  border: none;
+  color: #ededed;
+}
+.list-group-item:hover {
+  background-color: #ededed;
+  color: #333a2f;
+}
+.list-group-item:active {
+  background-color: #ededed;
+  color: #333a2f;
+}
+/* .list-group .list-group-item:hover {
+  background-color: #ededed;
+  color: #333a2f;
+} */

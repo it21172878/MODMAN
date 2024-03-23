@@ -24,7 +24,7 @@ font-family: 'Playfair Display', serif; */
   text-transform: uppercase;
   /* box-shadow: 0 8px 6px -6px gray; */
   --webkit-box-shadow: 0 8px 6px -6px gray;
-  border-bottom: solid gray !important;
+  border-bottom: solid #ebeddf !important;
 }
 
 .nav-link {
@@ -89,7 +89,8 @@ font-family: 'Playfair Display', serif; */
 ==========footer============= */
 
 .footer {
-  color: white;
+  border-top: solid #ebeddf !important;
+  color: #ebeddf;
   padding: 22px;
   background: #333a2f; /* fallback for old browsers */
   background: -webkit-linear-gradient(

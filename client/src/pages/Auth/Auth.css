@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(../../../public/images/register2.jpg) no-repeat;
+  background: url(../../../public/images/regBack.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -11,10 +11,10 @@
   margin: 1rem 1rem;
   width: 420px;
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: aliceblue;
+  border: 2px solid #333a2f;
+  color: #333a2f;
   backdrop-filter: blur(25px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10px #333a2f;
   border-radius: 10px;
   padding: 30px 40px;
 }
@@ -39,14 +39,14 @@
   background: transparent;
   border: none;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #333a2f;
   border-radius: 40px;
   font-size: 16px;
-  color: #fff;
+  color: #333a2f;
   padding: 20px 45px 20px 20px;
 }
 .input-box input::placeholder {
-  color: #fff;
+  color: #333a2f;
 }
 .input-box .icon {
   position: absolute;
@@ -58,20 +58,20 @@
 
 .wrapper2 button {
   width: 100%;
-  height: 45px;
-  background: #fff;
+  height: 35px;
+  background: #333a2f;
   border: none;
   outline: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
-  color: #333;
+  color: #ededed;
 }
 .wrapper2 button:hover {
-  color: #fff;
-  background: linear-gradient(to right, #57310e, #1f0f03);
+  color: #333a2f;
+  background: linear-gradient(to right, #ededed, #ededed);
 }
 .wrapper2 .login-link {
   font-size: 14.5px;

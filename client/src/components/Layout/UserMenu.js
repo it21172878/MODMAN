@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './UserMenu.css';
 
 const UserMenu = () => {
   return (
     <>
-      <div className="text-center">
+      <div className="text-left">
         <div className="list-group">
           <h4>Student Panel</h4>
           <NavLink
@@ -15,6 +16,12 @@ const UserMenu = () => {
             Project Group
           </NavLink>
 
+          <NavLink
+            to="/dashboard/user/my-group"
+            className="list-group-item list-group-item-action "
+          >
+            My Group Details
+          </NavLink>
           <NavLink
             to="/dashboard/user/assignment"
             className="list-group-item list-group-item-action "

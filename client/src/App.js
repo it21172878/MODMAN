@@ -21,6 +21,7 @@ import ProjectMemberDashboard from './pages/ProjectMember/ProjectMemberDashboard
 import Dashboard from './pages/user/Dashboard';
 import CreateProjectGroup from './pages/user/CreateProjectGroup';
 import MyAssignment from './pages/user/MyAssignment';
+import MyGroupDetails from './pages/user/MyGroupDetails';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="user" element={<Dashboard />} />
           <Route path="user/project-group" element={<CreateProjectGroup />} />
           <Route path="user/assignment" element={<MyAssignment />} />
+          <Route path="user/my-group" element={<MyGroupDetails />} />
         </Route>
         <Route path="/dashboard" element={<ProjectCoordinatorRoute />}>
           <Route
