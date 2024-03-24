@@ -31,11 +31,69 @@ const MyGroupDetails = () => {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <h1>My Group Details</h1>
-            <div>
-              {groups?.map((group, index) => {
-                return <h4 key={index}>{group.userName}</h4>;
-              })}
+            <div className="items">
+              <table class="container">
+                <thead>
+                  <tr>
+                    <th>
+                      <h1>Username</h1>
+                    </th>
+                    <th>
+                      <h1>RegisteNo</h1>
+                    </th>
+                    <th>
+                      <h1>ContactNo</h1>
+                    </th>
+                    <th>
+                      <h1>Email</h1>
+                    </th>
+                    <th>
+                      <h1>Group Type</h1>
+                    </th>
+                    <th>
+                      <h1>Specialization</h1>
+                    </th>
+                    <th>
+                      <h1>Project Leader Name</h1>
+                    </th>
+                    <th>
+                      <h1>Project Leader RegNo</h1>
+                    </th>
+                    <th>
+                      <h1>Project Title</h1>
+                    </th>
+                    <th>
+                      <h1>Research Area</h1>
+                    </th>
+                    <th>
+                      <h1>Research Group</h1>
+                    </th>
+                    <th>
+                      <h1>Supervisor Name</h1>
+                    </th>
+                  </tr>
+                </thead>
+                {groups?.map((group, index) => {
+                  return (
+                    <tbody>
+                      <tr>
+                        <td>{group.userName}</td>
+                        <td>{group.regNo}</td>
+                        <td>{group.contactNo}</td>
+                        <td>{group.email}</td>
+                        <td>{group.groupType}</td>
+                        <td>{group.specialization}</td>
+                        <td>{group.projectLeaderName}</td>
+                        <td>{group.projectLeaderRegNo}</td>
+                        <td>{group.projectTitle}</td>
+                        <td>{group.researchArea}</td>
+                        <td>{group.researchGroup}</td>
+                        <td>{group.supervisorName}</td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
             </div>
           </div>
         </div>
