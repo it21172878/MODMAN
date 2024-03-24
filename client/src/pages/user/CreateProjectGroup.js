@@ -49,7 +49,7 @@ const CreateProjectGroup = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
-        navigate('#');
+        navigate(`/dashboard/user/my-group?specialization=${specialization}`);
       } else {
         toast.error(res.data.message);
       }

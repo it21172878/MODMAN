@@ -4,10 +4,20 @@ import UserMenu from '../../components/Layout/UserMenu';
 import axios from 'axios';
 import { useAuth } from '../../context/auth';
 import './MyGroupDetails.css';
+import { useLocation } from 'react-router-dom';
 
 const MyGroupDetails = () => {
   const [groups, setGroups] = useState();
   const [auth, setAuth] = useAuth();
+  // ****************************
+  const [specialization, setSpecialization] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const specializationParam = searchParams.get('specialization');
+    setSpecialization(specializationParam);
+  }, [location.search]);
   //getall groups
   const getAllGroups = async () => {
     try {
@@ -74,24 +84,26 @@ const MyGroupDetails = () => {
                   </tr>
                 </thead>
                 {groups?.map((group, index) => {
-                  return (
-                    <tbody>
-                      <tr>
-                        <td>{group.userName}</td>
-                        <td>{group.regNo}</td>
-                        <td>{group.contactNo}</td>
-                        <td>{group.email}</td>
-                        <td>{group.groupType}</td>
-                        <td>{group.specialization}</td>
-                        <td>{group.projectLeaderName}</td>
-                        <td>{group.projectLeaderRegNo}</td>
-                        <td>{group.projectTitle}</td>
-                        <td>{group.researchArea}</td>
-                        <td>{group.researchGroup}</td>
-                        <td>{group.supervisorName}</td>
-                      </tr>
-                    </tbody>
-                  );
+                  if (group.specialization === specialization) {
+                    return (
+                      <tbody>
+                        <tr key={index}>
+                          <td>{group.userName}</td>
+                          <td>{group.regNo}</td>
+                          <td>{group.contactNo}</td>
+                          <td>{group.email}</td>
+                          <td>{group.groupType}</td>
+                          <td>{group.specialization}</td>
+                          <td>{group.projectLeaderName}</td>
+                          <td>{group.projectLeaderRegNo}</td>
+                          <td>{group.projectTitle}</td>
+                          <td>{group.researchArea}</td>
+                          <td>{group.researchGroup}</td>
+                          <td>{group.supervisorName}</td>
+                        </tr>
+                      </tbody>
+                    );
+                  }
                 })}
               </table>
             </div>
