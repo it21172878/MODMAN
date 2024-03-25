@@ -3,21 +3,26 @@ import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import axios from 'axios';
 import { useAuth } from '../../context/auth';
+import { useProjectGroup } from '../../context/projectGroup';
 import './MyGroupDetails.css';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const MyGroupDetails = () => {
   const [groups, setGroups] = useState();
   const [auth, setAuth] = useAuth();
-  // ****************************
-  const [specialization, setSpecialization] = useState('');
-  const location = useLocation();
+  const [projectGroup, setProjectGroup] = useProjectGroup();
 
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const specializationParam = searchParams.get('specialization');
-    setSpecialization(specializationParam);
-  }, [location.search]);
+  // const special = localStorage.getItem('inputValue');
+  // ****************************
+  // const [specialization, setSpecialization] = useState('');
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   const searchParams = new URLSearchParams(location.search);
+  //   const specializationParam = searchParams.get('specialization');
+  //   setSpecialization(specializationParam);
+  // }, [location.search]);
+  // ****************************
   //getall groups
   const getAllGroups = async () => {
     try {
@@ -33,6 +38,7 @@ const MyGroupDetails = () => {
   useEffect(() => {
     if (auth?.token) getAllGroups();
   }, [auth?.token]);
+
   return (
     <Layout>
       <div className="container-fluid">
@@ -41,6 +47,14 @@ const MyGroupDetails = () => {
             <UserMenu />
           </div>
           <div className="col-md-9">
+            <h1>{`Hello ${auth?.token && auth?.user?.fullName}`}</h1>
+            {/* <p className="text-center">
+              {projectGroup?.length
+                ? `You Have ${projectGroup.length} items in your DB ${
+                    auth?.token ? '' : 'please login to checkout !'
+                  }`
+                : ' Register to group'}
+            </p> */}
             <div className="items">
               <table class="container">
                 <thead>
@@ -84,7 +98,7 @@ const MyGroupDetails = () => {
                   </tr>
                 </thead>
                 {groups?.map((group, index) => {
-                  if (group.specialization === specialization) {
+                  if (group.specialization === projectGroup) {
                     return (
                       <tbody>
                         <tr key={index}>

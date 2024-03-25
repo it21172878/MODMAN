@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/auth';
+import { ProjectGroupProvider } from './context/projectGroup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProjectGroupProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProjectGroupProvider>
   </AuthProvider>
 );
 

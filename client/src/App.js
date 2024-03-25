@@ -23,7 +23,7 @@ import CreateProjectGroup from './pages/user/CreateProjectGroup';
 import MyAssignment from './pages/user/MyAssignment';
 import MyGroupDetails from './pages/user/MyGroupDetails';
 
-function App() {
+function App({ child }) {
   return (
     <>
       <Routes>
@@ -32,7 +32,11 @@ function App() {
           <Route path="user" element={<Dashboard />} />
           <Route path="user/project-group" element={<CreateProjectGroup />} />
           <Route path="user/assignment" element={<MyAssignment />} />
-          <Route path="user/my-group" element={<MyGroupDetails />} />
+
+          <Route
+            path="user/my-group"
+            element={<MyGroupDetails child={child} />}
+          />
         </Route>
         <Route path="/dashboard" element={<ProjectCoordinatorRoute />}>
           <Route

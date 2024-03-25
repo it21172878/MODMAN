@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { PiIdentificationBadgeFill } from 'react-icons/pi';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import './createProjectGroup.css';
 import { useAuth } from '../../context/auth';
+import { useProjectAuth, useProjectGroup } from '../../context/projectGroup';
 
 const CreateProjectGroup = () => {
   const [userName, setUserName] = useState('');
@@ -28,6 +29,8 @@ const CreateProjectGroup = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [auth, setAuth] = useAuth();
+  // const [projectGroup, setProjectGroup] = useProjectGroup();
+  // const special = useRef();
 
   // form function
   const handleSubmit = async (e) => {
@@ -49,7 +52,9 @@ const CreateProjectGroup = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
-        navigate(`/dashboard/user/my-group?specialization=${specialization}`);
+        localStorage.setItem('special', specialization);
+        // navigate(`/dashboard/user/my-group?specialization=${specialization}`);
+        navigate('/dashboard/user/my-group');
       } else {
         toast.error(res.data.message);
       }
@@ -166,6 +171,7 @@ const CreateProjectGroup = () => {
                     </div> */}
                     <div className="inputBox">
                       <select
+                        // ref={special}
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
                       >
