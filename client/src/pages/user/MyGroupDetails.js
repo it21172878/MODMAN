@@ -47,7 +47,8 @@ const MyGroupDetails = () => {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <h1>{`Hello ${auth?.token && auth?.user?.fullName}`}</h1>
+            {/* <h1>{`Hello ${auth?.token && auth?.user?.fullName}...`}</h1>
+            <h5>{'This is your group details'}</h5> */}
             {/* <p className="text-center">
               {projectGroup?.length
                 ? `You Have ${projectGroup.length} items in your DB ${
