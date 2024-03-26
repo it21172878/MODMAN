@@ -21,6 +21,7 @@ const CreateNewUser = () => {
   const [mobileNo, setMobileNo] = useState('');
   const [password, setPassword] = useState('');
   const [answer, setAnswer] = useState('');
+  const [role, setRole] = useState('');
   const navigate = useNavigate();
 
   // form function
@@ -35,6 +36,7 @@ const CreateNewUser = () => {
         mobileNo,
         password,
         answer,
+        role,
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
@@ -56,7 +58,7 @@ const CreateNewUser = () => {
             <ProjectCoordinatorMenu />
           </div>
           <div className="col-md-9 main">
-            <div className="wrap">
+            <div className="wrapp">
               {/* <div className="wrap2"> */}
               <form onSubmit={handleSubmit} action="">
                 <h1>Register</h1>
@@ -130,15 +132,29 @@ const CreateNewUser = () => {
                   ></input>
                   <RiLockPasswordFill className="icon" />
                 </div>
+                <div className="input-box">
+                  <select
+                    // ref={special}
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                  >
+                    <option>--select user role--</option>
+                    <option>projectCoordinator</option>
+                    <option>projectMember</option>
+                    <option>Examiner</option>
+                    <option>Supervisor</option>
+                    <option>Student</option>
+                  </select>
+                </div>
                 <button type="submit">Register</button>
-                <div className="login-link">
-                  {/* <p>
+                {/* <div className="login-link">
+                  <p>
                     have an account please{' '}
                     <Link to="/login" className="login">
                       login
                     </Link>
-                  </p> */}
-                </div>
+                  </p>
+                </div> */}
               </form>
             </div>
           </div>

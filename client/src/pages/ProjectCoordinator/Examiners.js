@@ -40,7 +40,7 @@ const Examiners = () => {
             : ' Register to group'}
         </p> */}
             <div className="items">
-              <table class="container">
+              <table class="container" style={{ width: '100%' }}>
                 <thead>
                   <tr>
                     <th>
