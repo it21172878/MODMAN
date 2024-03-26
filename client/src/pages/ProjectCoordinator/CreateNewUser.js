@@ -38,7 +38,7 @@ const CreateNewUser = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data.message);
-        navigate('/dashboard/projectCoordinator/all-project-coordinators');
+        // navigate('/dashboard/projectCoordinator/all-project-coordinators');
       } else {
         toast.error(res.data.message);
       }

@@ -24,6 +24,10 @@ import MyAssignment from './pages/user/MyAssignment';
 import MyGroupDetails from './pages/user/MyGroupDetails';
 import CreateNewUser from './pages/ProjectCoordinator/CreateNewUser';
 import ProjectCoordinators from './pages/ProjectCoordinator/ProjectCoordinators';
+import ProjectMembers from './pages/ProjectCoordinator/ProjectMembers';
+import Examiners from './pages/ProjectCoordinator/Examiners';
+import Supervisors from './pages/ProjectCoordinator/Supervisors';
+import Students from './pages/ProjectCoordinator/Students';
 
 function App({ child }) {
   return (
@@ -54,6 +58,22 @@ function App({ child }) {
           <Route
             path="projectCoordinator/all-project-coordinators"
             element={<ProjectCoordinators />}
+          />
+          <Route
+            path="projectCoordinator/all-project-members"
+            element={<ProjectMembers />}
+          />
+          <Route
+            path="projectCoordinator/all-examiners"
+            element={<Examiners />}
+          />
+          <Route
+            path="projectCoordinator/all-supervisors"
+            element={<Supervisors />}
+          />
+          <Route
+            path="projectCoordinator/all-students"
+            element={<Students />}
           />
         </Route>
         <Route path="/dashboard" element={<SupervisorRoute />}>

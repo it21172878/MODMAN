@@ -21,16 +21,28 @@ const ProjectCoordinatorMenu = () => {
           >
             Project Coordinators
           </NavLink>
-          <NavLink to="#" className="list-group-item list-group-item-action ">
+          <NavLink
+            to="/dashboard/projectCoordinator/all-project-members"
+            className="list-group-item list-group-item-action "
+          >
             Project Members
           </NavLink>
-          <NavLink to="#" className="list-group-item list-group-item-action ">
+          <NavLink
+            to="/dashboard/projectCoordinator/all-examiners"
+            className="list-group-item list-group-item-action "
+          >
             Examiners
           </NavLink>
-          <NavLink to="#" className="list-group-item list-group-item-action ">
+          <NavLink
+            to="/dashboard/projectCoordinator/all-supervisors"
+            className="list-group-item list-group-item-action "
+          >
             Supervisors
           </NavLink>
-          <NavLink to="#" className="list-group-item list-group-item-action ">
+          <NavLink
+            to="/dashboard/projectCoordinator/all-students"
+            className="list-group-item list-group-item-action "
+          >
             Students
           </NavLink>
         </div>
