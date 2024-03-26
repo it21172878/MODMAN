@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,6 @@ import { PiIdentificationBadgeFill } from 'react-icons/pi';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import './createProjectGroup.css';
 import { useAuth } from '../../context/auth';
-import { useProjectAuth, useProjectGroup } from '../../context/projectGroup';
 
 const CreateProjectGroup = () => {
   const [userName, setUserName] = useState('');

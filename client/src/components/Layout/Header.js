@@ -98,11 +98,11 @@ const Header = () => {
               </li> */}
               {!auth.user ? (
                 <>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <NavLink to="/register" className="nav-link ">
                       Sign Up
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <NavLink to="/login" className="nav-link ">
                       Login
@@ -151,6 +151,10 @@ const Header = () => {
                   </li>
                 </>
               )}
+
+              {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
+              {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
             </ul>
           </div>
         </div>

@@ -22,12 +22,15 @@ import Dashboard from './pages/user/Dashboard';
 import CreateProjectGroup from './pages/user/CreateProjectGroup';
 import MyAssignment from './pages/user/MyAssignment';
 import MyGroupDetails from './pages/user/MyGroupDetails';
+import CreateNewUser from './pages/ProjectCoordinator/CreateNewUser';
+import ProjectCoordinators from './pages/ProjectCoordinator/ProjectCoordinators';
 
 function App({ child }) {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        {/* USER ROUTES */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/project-group" element={<CreateProjectGroup />} />
@@ -38,10 +41,19 @@ function App({ child }) {
             element={<MyGroupDetails child={child} />}
           />
         </Route>
+        {/* PROJECT COORDINATOR ROUTES */}
         <Route path="/dashboard" element={<ProjectCoordinatorRoute />}>
           <Route
             path="projectCoordinator"
             element={<ProjectCoordinatorDashboard />}
+          />
+          <Route
+            path="projectCoordinator/add-user"
+            element={<CreateNewUser />}
+          />
+          <Route
+            path="projectCoordinator/all-project-coordinators"
+            element={<ProjectCoordinators />}
           />
         </Route>
         <Route path="/dashboard" element={<SupervisorRoute />}>
