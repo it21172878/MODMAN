@@ -4,7 +4,8 @@
   align-items: center;
   min-height: 100vh;
   /* background: url(../../../public/images/grpReg.jpg) no-repeat; */
-  background-color: #ebeddf;
+  /* background-color: #ebeddf; */
+  background: linear-gradient(#141e30, #243b55);
   background-size: cover;
   background-position: center;
 }

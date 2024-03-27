@@ -2,6 +2,8 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import UserMenu from '../../components/Layout/UserMenu';
 import { useAuth } from '../../context/auth';
+import './UserProfile.css';
+import Button from '../../components/Button';
 
 const UserProfile = () => {
   const [auth, setAuth] = useAuth();
@@ -14,7 +16,7 @@ const UserProfile = () => {
           <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-9 user-profile">
             <div className="card">
               <h1>User details</h1>
               <h5>User ID: {auth?.user?.userID}</h5>
@@ -26,7 +28,8 @@ const UserProfile = () => {
               {/* <h5>Role: {auth?.user?.role}</h5> */}
               {/* <h5>Password: {auth?.user?.password}</h5> */}
               <a href="/dashboard/user/update-profile">
-                <button>update user</button>
+                <Button>Update Profile</Button>
+                {/* <button>update user</button> */}
               </a>
             </div>
           </div>

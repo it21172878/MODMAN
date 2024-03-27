@@ -1,0 +1,7 @@
+.user-profile {
+  background: linear-gradient(#141e30, #243b55);
+}
+.user-profile .card {
+  border: none;
+  background: none;
+}
