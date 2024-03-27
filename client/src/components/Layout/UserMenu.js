@@ -9,6 +9,13 @@ const UserMenu = () => {
         <div className="list-group">
           <h4>Student Panel</h4>
           <NavLink
+            to="/dashboard/user/my-profile"
+            className="list-group-item list-group-item-action "
+            aria-current="true"
+          >
+            Your Profile
+          </NavLink>
+          <NavLink
             to="/dashboard/user/project-group"
             className="list-group-item list-group-item-action "
             aria-current="true"

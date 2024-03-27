@@ -28,6 +28,8 @@ import ProjectMembers from './pages/ProjectCoordinator/ProjectMembers';
 import Examiners from './pages/ProjectCoordinator/Examiners';
 import Supervisors from './pages/ProjectCoordinator/Supervisors';
 import Students from './pages/ProjectCoordinator/Students';
+import UserProfile from './pages/user/UserProfile';
+import UpdateUser from './pages/user/UpdateUser';
 
 function App({ child }) {
   return (
@@ -37,8 +39,10 @@ function App({ child }) {
         {/* USER ROUTES */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
+          <Route path="user/my-profile" element={<UserProfile />} />
           <Route path="user/project-group" element={<CreateProjectGroup />} />
           <Route path="user/assignment" element={<MyAssignment />} />
+          <Route path="user/update-profile" element={<UpdateUser />} />
 
           <Route
             path="user/my-group"

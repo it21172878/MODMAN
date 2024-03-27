@@ -9,8 +9,9 @@
   background-position: center;
 }
 .card {
+  padding: 2rem;
   color: #ebeddf;
-  background-color: #333a2f;
+  background-color: #323c50;
 }
 .col-md-3 {
   background-color: #333a2f;

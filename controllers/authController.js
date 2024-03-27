@@ -180,3 +180,42 @@ export const getAllUsersController = async (req, res) => {
     });
   }
 };
+
+//update user prfole
+export const updateProfileController = async (req, res) => {
+  try {
+    const { userID, fullName, email, nicNo, mobileNo, password, answer } =
+      req.body;
+    const user = await userModel.findById(req.user._id);
+    //password
+    if (password && password.length < 3) {
+      return res.json({ error: 'Passsword is required and 3 character long' });
+    }
+    const hashedPassword = password ? await hashPassword(password) : undefined;
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      {
+        userID: userID || user.userID,
+        fullName: fullName || user.fullName,
+        password: hashedPassword || user.password,
+        email: email || user.email,
+        mobileNo: mobileNo || user.mobileNo,
+        nicNo: nicNo || user.nicNo,
+        answer: answer || user.answer,
+      },
+      { new: true }
+    );
+    res.status(200).send({
+      success: true,
+      message: 'Profile Updated SUccessfully',
+      updatedUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: 'Error WHile Update profile',
+      error,
+    });
+  }
+};
