@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout/Layout';
-import { useAuth } from '../context/auth';
+// import { useAuth } from '../context/auth';
 import Carousel from 'react-bootstrap/Carousel';
 import './HomePage.css';
 import img1 from '../../src/images/img1.jpg';
@@ -8,11 +8,11 @@ import img2 from '../../src/images/img2.jpg';
 import img3 from '../../src/images/img3.jpg';
 
 const HomePage = () => {
-  const [auth, setAuth] = useAuth();
+  // const [auth, setAuth] = useAuth();
   return (
     <Layout>
       {/* <h1>HomePage</h1> */}
-      <pre>{JSON.stringify(auth, null, 4)}</pre>
+      {/* <pre>{JSON.stringify(auth, null, 4)}</pre> */}
       <Carousel>
         <Carousel.Item>
           <img

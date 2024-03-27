@@ -139,7 +139,7 @@ const UpdateUser = () => {
                   ></input>
                   <RiLockPasswordFill className="icon" />
                 </div>
-                {/* <div className="input-box">
+                <div className="input-box">
                   <input
                     type="text"
                     value={answer}
@@ -148,7 +148,7 @@ const UpdateUser = () => {
                     required
                   ></input>
                   <RiLockPasswordFill className="icon" />
-                </div> */}
+                </div>
                 {/* <div className="input-box">
                   <select
                     // ref={special}

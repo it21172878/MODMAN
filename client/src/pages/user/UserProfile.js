@@ -22,7 +22,7 @@ const UserProfile = () => {
               <h5>Email: {auth?.user?.email}</h5>
               <h5>NIC: {auth?.user?.nicNo}</h5>
               <h5>Contact Number: {auth?.user?.mobileNo}</h5>
-              {/* <h5>Answer: {auth?.user?.answer}</h5> */}
+              <h5>Answer: {auth?.user?.answer}</h5>
               {/* <h5>Role: {auth?.user?.role}</h5> */}
               {/* <h5>Password: {auth?.user?.password}</h5> */}
               <a href="/dashboard/user/update-profile">

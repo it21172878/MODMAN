@@ -1,6 +1,7 @@
 import { comparePasswords, hashPassword } from '../helpers/authHelper.js';
-import userModel from '../models/userModel.js';
+// import userModel from '../models/userModel.js';
 import JWT from 'jsonwebtoken';
+import userModel from '../models/userModel.js';
 
 export const registerController = async (req, res) => {
   try {
@@ -107,6 +108,7 @@ export const loginController = async (req, res) => {
         nicNo: user.nicNo,
         mobileNo: user.mobileNo,
         password: user.password,
+        answer: user.answer,
         role: user.role,
       },
       token,
