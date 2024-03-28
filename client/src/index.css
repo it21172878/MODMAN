@@ -35,7 +35,9 @@ font-family: 'Playfair Display', serif; */
 .nav-link:hover {
   font-weight: 300 !important;
   color: rgb(151, 151, 151);
+  background-color: #183d3d;
 }
+
 .dropdown-menu {
   background-color: #040d12;
 }
@@ -44,35 +46,43 @@ font-family: 'Playfair Display', serif; */
 }
 
 .active {
-  border-bottom: 2px solid rgb(255, 255, 255);
+  /* border-bottom: 2px solid #93b1a6; */
 }
+/* background-color: #040d12; */
+/* background-color: #183d3d; */
+/* background-color: #5c8374; */
+/* background-color: #93b1a6; */
 
 .navbar-brand {
-  font-weight: 700;
+  font-weight: 900;
   font-family: 'roboto', sans-serif;
   letter-spacing: 3px;
-  color: #ebeddf;
+  color: #93b1a6;
 }
 .navbar-brand span {
   font-weight: 700;
   font-family: 'roboto', sans-serif;
   letter-spacing: 3px;
-  color: #8a964a;
+  color: #5c8374;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar-brand span:hover {
+  color: #183d3d;
 }
 
-.search-form {
+/* .search-form {
   margin-right: 10px;
   margin-top: 4px;
-}
-.search-form input {
+} */
+/* .search-form input {
   border: none;
   border-radius: 0;
-}
-.search-form button {
+} */
+/* .search-form button {
   background-color: #000000;
   border-radius: 0;
   color: white;
-}
+} */
 /* 
 ==================================
 ===============register page===== */
@@ -95,7 +105,7 @@ font-family: 'Playfair Display', serif; */
   /* background-color: #183d3d; */
   /* background-color: #5c8374; */
   /* color: #93b1a6; */
-  color: #183d3d;
+  color: #93b1a6;
   padding: 22px;
   background: #040d12; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -108,7 +118,7 @@ font-family: 'Playfair Display', serif; */
 
 .footer a {
   text-decoration: none;
-  color: white;
+  color: #93b1a6;
   padding: 10px;
 }
 

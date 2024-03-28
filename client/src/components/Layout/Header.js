@@ -18,6 +18,17 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               MOD
@@ -25,82 +36,85 @@ const Header = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+                <Link to="/" className="nav-link ">
                   Home
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <NavLink
+                <Link
                   className="nav-link dropdown-toggle"
                   to="/specializations"
                   data-bs-toggle="dropdown"
                 >
                   Specializations
-                </NavLink>
-                <ul className="dropdown-menu">
+                </Link>
+                <ul className=" dropdown-menu">
                   <li>
-                    <NavLink to="/" className="dropdown-item">
+                    <NavLink
+                      to="/information-technology"
+                      className="dropdown-item"
+                    >
                       Information Technology (IT)
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/" className="dropdown-item">
-                      Software Engineering (SE)
-                    </NavLink>
+                    <Link to="/software-engineering" className="dropdown-item">
+                      (SE)
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/" className="dropdown-item">
+                    <Link to="/information-systems" className="dropdown-item">
                       Information Systems (IS)
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/" className="dropdown-item">
+                    <Link to="/cyber-security" className="dropdown-item">
                       Cyber Security (CS)
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/" className="dropdown-item">
+                    <Link to="/data-science" className="dropdown-item">
                       Data Science (DS)
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/" className="dropdown-item">
+                    <Link to="/csne" className="dropdown-item">
                       Computer Systems and Network Engineering (CSNE)
-                    </NavLink>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <NavLink to="/about" className="nav-link ">
+                <Link to="/about" className="nav-link ">
                   About
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item">
-                <NavLink to="/contact" className="nav-link ">
+                <Link to="/contact" className="nav-link ">
                   Contact
-                </NavLink>
+                </Link>
               </li>
               {!auth.user ? (
                 <>
                   <li className="nav-item">
-                    <NavLink to="/login" className="nav-link ">
+                    <Link to="/login" className="nav-link ">
                       Login
-                    </NavLink>
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li className="nav-item dropdown">
-                    <NavLink
+                    <Link
                       className="nav-link dropdown-toggle"
                       role="button"
                       data-bs-toggle="dropdown"
                     >
                       {auth?.user?.fullName}
-                    </NavLink>
+                    </Link>
                     <ul className="dropdown-menu">
                       <li>
-                        <NavLink
+                        <Link
                           to={`/dashboard/${
                             auth?.user?.role === 'projectCoordinator'
                               ? 'projectCoordinator'
@@ -115,16 +129,16 @@ const Header = () => {
                           className="dropdown-item"
                         >
                           Dashboard
-                        </NavLink>
+                        </Link>
                       </li>
                       <li>
-                        <NavLink
+                        <Link
                           onClick={handleLogout}
                           to="/login"
                           className="dropdown-item"
                         >
                           Logout
-                        </NavLink>
+                        </Link>
                       </li>
                     </ul>
                   </li>
