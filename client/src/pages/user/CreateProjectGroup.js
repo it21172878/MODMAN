@@ -11,6 +11,7 @@ import { PiIdentificationBadgeFill } from 'react-icons/pi';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import './createProjectGroup.css';
 import { useAuth } from '../../context/auth';
+import Button from '../../components/Button';
 
 const CreateProjectGroup = () => {
   const [userName, setUserName] = useState('');
@@ -265,7 +266,10 @@ const CreateProjectGroup = () => {
                     </p> */}
                   {/* </div> */}
                 </div>
-                <button type="submit">Register</button>
+                <div className="reg-btn">
+                  <Button>Register Group</Button>
+                </div>
+                {/* <button type="submit">Register</button> */}
               </form>
             </div>
           </div>

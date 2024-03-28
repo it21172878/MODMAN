@@ -7,12 +7,12 @@ const ProjectCoordinatorMenu = () => {
       <div className="text-left">
         <div className="list-group">
           <h4>Project Coordinator Panel</h4>
-          {/* <NavLink
-            to="/dashboard/projectCoordinator"
+          <NavLink
+            to="/dashboard/projectCoordinator/my-profile"
             className="list-group-item list-group-item-action "
           >
-            Dashboard
-          </NavLink> */}
+            Your Profile
+          </NavLink>
           <NavLink
             to="/dashboard/projectCoordinator/add-user"
             className="list-group-item list-group-item-action "

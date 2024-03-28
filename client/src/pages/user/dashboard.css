@@ -3,17 +3,22 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background: url(../../../public/images/grpReg.jpg) no-repeat; */
-  /* background-color: #ebeddf; */
-  background: linear-gradient(#141e30, #243b55);
+  /* background-color: #040d12; */
+  /* background-color: #183d3d; */
+  /* background-color: #5c8374; */
+  /* background-color: #93b1a6; */
   background-size: cover;
   background-position: center;
 }
-.card {
+/* .card {
   padding: 2rem;
   color: #ebeddf;
+  background: none;
   background-color: #323c50;
-}
+} */
 .col-md-3 {
-  background-color: #333a2f;
+  background-color: #040d12;
+  /* background-color: #183d3d; */
+  /* background-color: #5c8374; */
+  /* background-color: #93b1a6; */
 }

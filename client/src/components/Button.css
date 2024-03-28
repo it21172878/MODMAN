@@ -1,72 +1,13 @@
-/* html {
-  height: 100%;
-} */
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: linear-gradient(#141e30, #243b55);
-} */
-
-/* .login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-} */
-
-/* .login-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-} */
-
-/* .login-box .user-box {
-  position: relative;
-} */
-
-/* .login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
+.btn .submit {
+  background: none;
   border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-} */
-/* .login-box .user-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: 0.5s;
-} */
-
-/* .login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-} */
-
-.btn div {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: #040d12;
+  /* background-color: #183d3d; */
+  /* background-color: #5c8374; */
+  /* background-color: #93b1a6; */
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -76,27 +17,27 @@
   letter-spacing: 4px;
 }
 
-.btn div:hover {
-  background: #03e9f4;
-  color: #fff;
+.btn .submit:hover {
+  background: #040d12;
+  color: #5c8374;
   border-radius: 5px;
-  box-shadow: 0 0 10px #03e9f4, 0 0 10px #03e9f4, 0 0 10px #03e9f4,
-    0 0 10px #03e9f4;
+  box-shadow: 0 0 10px #040d12, 0 0 10px #040d12, 0 0 10px #040d12,
+    0 0 10px #040d12;
   /* box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
     0 0 100px #03e9f4; */
 }
 
-.btn div span {
+.btn .submit span {
   position: absolute;
   display: block;
 }
 
-.btn div span:nth-child(1) {
+.btn .submit span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
+  background: linear-gradient(90deg, transparent, #040d12);
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -110,12 +51,12 @@
   }
 }
 
-.btn div span:nth-child(2) {
+.btn .submit span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
+  background: linear-gradient(180deg, transparent, #040d12);
   animation: btn-anim2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -130,12 +71,12 @@
   }
 }
 
-.btn div span:nth-child(3) {
+.btn .submit span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
+  background: linear-gradient(270deg, transparent, #040d12);
   animation: btn-anim3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -150,12 +91,12 @@
   }
 }
 
-.btn div span:nth-child(4) {
+.btn .submit span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
+  background: linear-gradient(360deg, transparent, #040d12);
   animation: btn-anim4 1s linear infinite;
   animation-delay: 0.75s;
 }

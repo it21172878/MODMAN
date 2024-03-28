@@ -1,7 +1,48 @@
 .user-profile {
-  background: linear-gradient(#141e30, #243b55);
+  /* background-color: #040d12; */
+  /* background-color: #183d3d; */
+  /* background-color: #5c8374; */
+  background-color: #93b1a6;
 }
-.user-profile .card {
+.user-profile div {
+  background-color: #93b1a6;
+  border: none;
+  padding: 10px;
+}
+.user-profile h1 {
+  color: #040d12;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-right: 90vh;
+  margin-top: 10px;
+}
+.user-profile .cols1 {
+  /* justify-content: space-between; */
+  /* display: block; */
+  flex-direction: row;
+  /* align-items: center; */
+  color: #040d12;
   border: none;
   background: none;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.user-profile .cols2 {
+  /* justify-content: space-between; */
+  /* display: block; */
+  flex-direction: row;
+  /* align-items: center; */
+  color: #040d12;
+  border: none;
+  background: none;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* justify-content: center; */
+  /* align-items: center; */
 }

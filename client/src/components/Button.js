@@ -1,16 +1,16 @@
 import React from 'react';
 import './Button.css';
 
-const Button = (props) => {
+const Button = ({ children, onClick }) => {
   return (
     <div class="btn">
-      <div>
+      <button type="submit" className="submit" onClick={onClick}>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        {props.children}
-      </div>
+        {children}
+      </button>
     </div>
   );
 };

@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background: url(../../../public/images/grpReg.jpg) no-repeat; */
-  background-color: #ebeddf;
+  /* background-color: #040d12; */
+  /* background-color: #183d3d; */
+  /* background-color: #5c8374; */
+  background-color: #93b1a6;
   background-size: cover;
   background-position: center;
 }
@@ -59,10 +61,10 @@
   background: transparent;
   border: none;
   outline: none;
-  border: 2px solid #333a2f;
+  border: 2px solid #040d12;
   border-radius: 40px;
   font-size: 16px;
-  color: #333a2f;
+  color: #040d12;
   padding: 20px 45px 20px 20px;
 }
 .inputBox select {
@@ -71,26 +73,26 @@
   height: 50px;
   margin-top: -2px;
   background: transparent;
-  color: #333a2f;
+  color: #040d12;
   border: none;
   outline: none;
-  border: 2px solid #333a2f;
+  border: 2px solid #040d12;
   border-radius: 40px;
   font-size: 16px;
   padding: 2px 4px 2px 15px;
 }
 .inputBox select option {
-  background: #333a2f;
-  color: #ebeddf;
+  background: #040d12;
+  color: #93b1a6;
 }
 .select_arrow {
   margin: 200px;
 }
 .inputBox input::placeholder {
-  color: #333a2f;
+  color: #040d12;
 }
 .inputBox .icon {
-  color: #333a2f;
+  color: #040d12;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -98,7 +100,7 @@
   font-size: 16px;
 }
 
-.wrap button {
+/* .wrap button {
   display: flex;
   width: 80%;
   height: 40px;
@@ -114,11 +116,15 @@
   margin-top: 15px;
   background: #333a2f;
   color: #ebeddf;
-}
-.wrap button:hover {
+} */
+/* .wrap button:hover {
   color: #333a2f;
   background: #ebeddf;
   border: solid 0.5px #333a2f;
+} */
+form .reg-btn {
+  width: 50%;
+  margin-left: 4%;
 }
 .wrap .login-link {
   font-size: 14.5px;
@@ -126,7 +132,7 @@
   margin: 20px 0 15px;
 }
 .wrap .login {
-  color: #333a2f;
+  color: #040d12;
   text-decoration: none;
   font-weight: 600;
 }
@@ -135,26 +141,26 @@
 }
 
 h3 {
-  color: #333a2f;
+  color: #040d12;
   text-align: center;
   margin-bottom: 25px;
 }
 h6 {
-  color: #333a2f;
+  color: #040d12;
 }
 form h6 {
-  color: #333a2f;
+  color: #040d12;
   text-align: left;
 }
 .radioBtn {
-  color: #333a2f;
+  color: #040d12;
   font-weight: 500;
   padding-right: 240px;
   margin-left: 45px;
   /* margin-right: -50px; */
 }
 .radioBtn input {
-  color: #333a2f;
+  color: #040d12;
   margin-right: 5px;
   margin-left: 10px;
 }

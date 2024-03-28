@@ -6,6 +6,7 @@ import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import Button from '../../components/Button';
 
 const ForgotPasssword = () => {
   const [email, setEmail] = useState('');
@@ -72,16 +73,16 @@ const ForgotPasssword = () => {
               ></input>
               <RiLockPasswordFill className="icon" />
             </div>
-
-            <button type="submit">Login</button>
-            <div className="login-link">
+            <Button>Change Password</Button>
+            {/* <button type="submit">Login</button> */}
+            {/* <div className="login-link">
               <p>
                 have an account please{' '}
                 <Link to="/register" className="login">
                   Register
                 </Link>
               </p>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

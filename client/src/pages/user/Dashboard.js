@@ -14,15 +14,7 @@ const Dashboard = ({ children }) => {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <div className="card">
-              <h1>Welcome to {auth?.user?.fullName}</h1>
-              {/* <h1>User details</h1>
-              <h5>User ID: {auth?.user?.userID}</h5>
-              <h5>Username: {auth?.user?.fullName}</h5>
-              <h5>Email: {auth?.user?.email}</h5>
-              <h5>NIC: {auth?.user?.nicNo}</h5>
-              <h5>Contact Number: {auth?.user?.mobileNo}</h5> */}
-            </div>
+            <h1>Welcome to {auth?.user?.fullName}</h1>
           </div>
         </div>
       </div>

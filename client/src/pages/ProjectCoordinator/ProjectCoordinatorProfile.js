@@ -1,23 +1,21 @@
 import React from 'react';
-import Layout from '../../components/Layout/Layout';
-import UserMenu from '../../components/Layout/UserMenu';
-import { useAuth } from '../../context/auth';
-import './UserProfile.css';
 import Button from '../../components/Button';
+import ProjectCoordinatorMenu from '../../components/Layout/ProjectCoordinatorMenu';
+import Layout from '../../components/Layout/Layout';
+import { useAuth } from '../../context/auth';
+import '../user/UserProfile.css';
 
-const UserProfile = () => {
+const ProjectCoordinatorProfile = () => {
   const [auth, setAuth] = useAuth();
-  console.log(auth.user.answer);
-  //   console.log(auth?.user);
   return (
     <Layout>
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
-            <UserMenu />
+            <ProjectCoordinatorMenu />
           </div>
           <div className="col-md-9 user-profile">
-            <h1>User details</h1>
+            <h1>Your Details</h1>
             <div className="card">
               <div className="group">
                 <div className="cols1">
@@ -61,7 +59,7 @@ const UserProfile = () => {
                   </label>
                 </div>
               </div>
-              <a href="/dashboard/user/update-profile">
+              <a href="/dashboard/projectCoordinator/update-profile">
                 <Button>Update Profile</Button>
                 {/* <button>update user</button> */}
               </a>
@@ -73,4 +71,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default ProjectCoordinatorProfile;

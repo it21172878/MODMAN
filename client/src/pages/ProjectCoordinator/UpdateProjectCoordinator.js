@@ -1,4 +1,3 @@
-// import '../Auth/Auth.css';
 import { HiIdentification } from 'react-icons/hi2';
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -10,11 +9,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
-import UserMenu from '../../components/Layout/UserMenu';
 import { useAuth } from '../../context/auth';
 import Button from '../../components/Button';
+import ProjectCoordinatorMenu from '../../components/Layout/ProjectCoordinatorMenu';
 
-const UpdateUser = () => {
+const UpdateProjectCoordinator = () => {
   //context
   const [auth, setAuth] = useAuth();
   //state
@@ -73,13 +72,13 @@ const UpdateUser = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
-            <UserMenu />
+            <ProjectCoordinatorMenu />
           </div>
           <div className="col-md-9 main">
             <div className="wrapp">
               {/* <div className="wrap2"> */}
               <form onSubmit={handleSubmit} action="">
-                <h1>Update Youe Details</h1>
+                <h1>Update Your Details</h1>
                 <div className="input-box">
                   <input
                     type="text"
@@ -184,4 +183,4 @@ const UpdateUser = () => {
   );
 };
 
-export default UpdateUser;
+export default UpdateProjectCoordinator;

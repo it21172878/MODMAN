@@ -13,12 +13,7 @@ const ProjectCoordinatorDashboard = () => {
             <ProjectCoordinatorMenu />
           </div>
           <div className="col-md-9">
-            <div className="card w-75">
-              <h4>Username: {auth?.user?.fullName}</h4>
-              <h4>Email: {auth?.user?.email}</h4>
-              <h4>Contact Number: {auth?.user?.mobileNo}</h4>
-              <h4>User role: {auth?.user?.role}</h4>
-            </div>
+            <h1>Welcome to {auth?.user?.fullName}</h1>
           </div>
         </div>
       </div>

@@ -30,6 +30,8 @@ import Supervisors from './pages/ProjectCoordinator/Supervisors';
 import Students from './pages/ProjectCoordinator/Students';
 import UserProfile from './pages/user/UserProfile';
 import UpdateUser from './pages/user/UpdateUser';
+import ProjectCoordinatorProfile from './pages/ProjectCoordinator/ProjectCoordinatorProfile';
+import UpdateProjectCoordinator from './pages/ProjectCoordinator/UpdateProjectCoordinator';
 
 function App({ child }) {
   return (
@@ -54,6 +56,14 @@ function App({ child }) {
           <Route
             path="projectCoordinator"
             element={<ProjectCoordinatorDashboard />}
+          />
+          <Route
+            path="projectCoordinator/update-profile"
+            element={<UpdateProjectCoordinator />}
+          />
+          <Route
+            path="projectCoordinator/my-profile"
+            element={<ProjectCoordinatorProfile />}
           />
           <Route
             path="projectCoordinator/add-user"

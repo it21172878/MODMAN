@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import ProjectCoordinatorMenu from './../../components/Layout/ProjectCoordinatorMenu';
 import './CreateNewUser.css';
+import Button from '../../components/Button';
 
 const CreateNewUser = () => {
   const [userID, setUserID] = useState('');
@@ -61,7 +62,7 @@ const CreateNewUser = () => {
             <div className="wrapp">
               {/* <div className="wrap2"> */}
               <form onSubmit={handleSubmit} action="">
-                <h1>Register</h1>
+                <h1>Create User</h1>
                 <div className="input-box">
                   <input
                     type="text"
@@ -146,7 +147,8 @@ const CreateNewUser = () => {
                     <option>Student</option>
                   </select>
                 </div>
-                <button type="submit">Register</button>
+                {/* <button type="submit">Register</button> */}
+                <Button>Create New User</Button>
                 {/* <div className="login-link">
                   <p>
                     have an account please{' '}

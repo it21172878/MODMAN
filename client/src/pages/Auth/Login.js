@@ -7,6 +7,7 @@ import { RiLockPasswordFill } from 'react-icons/ri';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useAuth } from '../../context/auth';
+import Button from '../../components/Button';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -70,7 +71,21 @@ const Login = () => {
               <RiLockPasswordFill className="icon" />
             </div>
             <div className=" mb-3">
-              <button
+              <p style={{ textAlign: 'end' }}>
+                <Link to="/forgot-password" className="login">
+                  Forgot your password
+                </Link>
+              </p>
+
+              {/* <Button
+                className=" btn btn-primary"
+                onClick={() => {
+                  navigate('/forgot-password');
+                }}
+              >
+                Forgot Password
+              </Button> */}
+              {/* <button
                 type="button"
                 className=" btn btn-primary"
                 onClick={() => {
@@ -78,17 +93,19 @@ const Login = () => {
                 }}
               >
                 Forgot Password
-              </button>
+              </button> */}
             </div>
-            <button type="submit">Login</button>
-            <div className="login-link">
+            {/* <button type="submit">Login</button> */}
+            <Button>Login</Button>
+
+            {/* <div className="login-link">
               <p>
-                have an account please{' '}
+                you have not an account please{' '}
                 <Link to="/register" className="login">
                   Register
                 </Link>
               </p>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
