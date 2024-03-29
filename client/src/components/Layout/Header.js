@@ -50,12 +50,12 @@ const Header = () => {
                 </Link>
                 <ul className=" dropdown-menu">
                   <li>
-                    <NavLink
+                    <Link
                       to="/information-technology"
                       className="dropdown-item"
                     >
                       Information Technology (IT)
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/software-engineering" className="dropdown-item">
