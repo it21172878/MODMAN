@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev')); // log request in
-app.use(express.static(path.join(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, './client/public')));
 
 // routes
 app.use('/api/v1/auth', authRoutes);
@@ -37,7 +37,7 @@ app.use('/api/v1/group', groupRoutes);
 //   res.send('<h1>Welcome to MODMAN</h1>');
 // });
 app.use('*', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  res.sendFile(path.join(__dirname, './client/public/index.html'));
 });
 
 // port
