@@ -14,10 +14,20 @@ const groupRegisterSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    // email: {
+    //   type: String,
+    //   lowercase: true,
+    //   required: true,
+    // },
     email: {
       type: String,
-      lowercase: true,
       required: true,
+      unique: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error('Not Valid Email');
+        }
+      },
     },
     groupType: {
       type: String,

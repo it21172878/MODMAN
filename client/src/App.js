@@ -32,6 +32,8 @@ import UserProfile from './pages/user/UserProfile';
 import UpdateUser from './pages/user/UpdateUser';
 import ProjectCoordinatorProfile from './pages/ProjectCoordinator/ProjectCoordinatorProfile';
 import UpdateProjectCoordinator from './pages/ProjectCoordinator/UpdateProjectCoordinator';
+import OTPform from './pages/Auth/OTPform';
+import ConfirmOTPform from './pages/Auth/ConfirmOTPform';
 
 function App({ child }) {
   return (
@@ -100,6 +102,9 @@ function App({ child }) {
           <Route path="projectMember" element={<ProjectMemberDashboard />} />
         </Route>
         <Route path="/register" element={<Register />} />
+        <Route path="/sendEmail" element={<sendEmail />} />
+        <Route path="/sendotp" element={<OTPform />} />
+        <Route path="/confirm-otp" element={<ConfirmOTPform />} />
         <Route path="/forgot-password" element={<ForgotPasssword />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />

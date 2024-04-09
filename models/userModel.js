@@ -12,11 +12,22 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    // email: {
+    //   type: String,
+    //   lowercase: true,
+    //   required: true,
+    // },
     email: {
       type: String,
-      lowercase: true,
       required: true,
+      unique: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error('Not Valid Email');
+        }
+      },
     },
+
     nicNo: {
       type: String,
       unique: true,

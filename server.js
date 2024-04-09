@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoute.js';
 import groupRoutes from './routes/projectGroupRoute.js';
+import emailRoutes from './routes/emailRoutes.js';
 import cors from 'cors';
 
 // dotenv config
@@ -24,6 +25,7 @@ app.use(morgan('dev')); // log request in
 // routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/group', groupRoutes);
+app.use('/api/v1/otpemail', emailRoutes);
 
 // rest api
 app.get('/', (req, res) => {

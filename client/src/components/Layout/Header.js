@@ -101,6 +101,11 @@ const Header = () => {
                       Login
                     </Link>
                   </li>
+                  <li className="nav-item">
+                    <Link to="/sendotp" className="nav-link ">
+                      Register
+                    </Link>
+                  </li>
                 </>
               ) : (
                 <>
