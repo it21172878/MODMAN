@@ -62,6 +62,7 @@ const sendEmail = expressAsyncHandler(async (req, res) => {
         { _id: existEmail._id },
         {
           otp: OTP,
+          // isVerify: false,
         },
         { new: true }
       );
@@ -80,9 +81,11 @@ const sendEmail = expressAsyncHandler(async (req, res) => {
           res.status(400).json({ error: 'email not send' });
         } else {
           console.log('Email sent', info.response);
-          res
-            .status(200)
-            .send({ success: true, message: 'Your OTP has been sent' });
+          res.status(200).send({
+            success: true,
+            message: 'Your OTP has been sent',
+            data: OTP,
+          });
         }
       });
     } else {

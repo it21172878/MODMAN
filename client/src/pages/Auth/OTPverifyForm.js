@@ -1,68 +1,43 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { MdEmail } from 'react-icons/md';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
-const OTPform = () => {
-  const [email, setEmail] = useState('');
-  // const [spiner, setSpiner] = useState(false);
-
+const OTPverifyForm = () => {
+  const [otp, setOtp] = useState('');
+  const location = useLocation();
   const navigate = useNavigate();
-
-  // sendotp
-  const sendOtp = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email === '') {
-      toast.error('Enter Your Email !');
-    } else if (!email.includes('@')) {
-      toast.error('Enter Valid Email !');
+    if (otp === '') {
+      toast.error('Enter Your Otp');
+    } else if (!/[^a-zA-Z]/.test(otp)) {
+      toast.error('Enter Valid Otp');
+    } else if (otp.length < 6) {
+      toast.error('Otp Length minimum 6 digit');
     } else {
-      // setSpiner(true);
       const data = {
-        email: email,
+        otp,
+        email: location.state,
       };
+      console.log(data);
 
-      const response = await axios.post('/api/v1/otpemail/sendEmail', data);
-      console.log(response);
-
+      const response = await axios.post('/api/v1/otpemail/verifyEmail', data);
       if (response.status === 200) {
-        // setSpiner(false);
+        // localStorage.setItem('userdbtoken', response.data.userToken);
         toast.success(response.data.message);
-        navigate('/verify-otp', { state: email });
+        setTimeout(() => {
+          navigate('/register');
+        }, 5000);
       } else {
-        toast.error(response.response.data.error);
+        toast.error(response.data.message);
       }
     }
   };
-  // const [email, setEmail] = useState('');
-  // const navigate = useNavigate();
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post('/api/v1/otpemail/sendEmail', {
-  //       method: 'POST',
-  //       body: JSON.stringify(email),
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //       },
-  //       email,
-  //     });
-  //     if (res && res.data.success) {
-  //       toast.success(res.data.message);
-  //       navigate('/verify-otp', { state: email });
-  //     } else {
-  //       toast.error(res.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error('Something went wrong');
-  //   }
-  // };
   //   ****************************************
 
   //   const [email, setEmail] = useState('');
@@ -96,28 +71,28 @@ const OTPform = () => {
     <Layout title={'Register'}>
       <div className="wrapper">
         <div className="wrapper2">
-          <form onSubmit={sendOtp} action="">
-            <h5>Confirm Email Address</h5>
+          <form onSubmit={handleSubmit} action="">
+            <h5>Please Enter Your OTP Here</h5>
             <div className="input-box">
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                type="text"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                placeholder="enter your OTP code here"
                 required
               ></input>
               <MdEmail className="icon" />
             </div>
 
-            <Button type="submit">Send OTP</Button>
-            <div className="login-link">
+            <Button type="submit">Verify Email</Button>
+            {/* <div className="login-link">
               <p>
                 have an account please{' '}
                 <Link to="/login" className="login">
                   login
                 </Link>
               </p>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
@@ -125,4 +100,4 @@ const OTPform = () => {
   );
 };
 
-export default OTPform;
+export default OTPverifyForm;
