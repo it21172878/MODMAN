@@ -2,11 +2,12 @@ import { comparePasswords, hashPassword } from '../helpers/authHelper.js';
 // import userModel from '../models/userModel.js';
 import JWT from 'jsonwebtoken';
 import userModel from '../models/userModel.js';
+import userotp from '../models/userOtp.js';
 
 export const registerController = async (req, res) => {
   try {
     // Get DOM elements.
-    const { userID, fullName, email, nicNo, mobileNo, password, answer, role } =
+    const { userID, fullName, email, nicNo, mobileNo, password, answer } =
       req.body;
     // validations
     if (!userID) {
@@ -30,9 +31,9 @@ export const registerController = async (req, res) => {
     if (!answer) {
       res.send({ message: 'Answer is required' });
     }
-    if (!role) {
-      res.send({ message: 'User Role is required' });
-    }
+    // if (!role) {
+    //   res.send({ message: 'User Role is required' });
+    // }
 
     //  Checking for existing user with the same username and email address.
     const existingUser = await userModel.findOne({ userID });
@@ -53,7 +54,7 @@ export const registerController = async (req, res) => {
       mobileNo,
       password: hashedPassword,
       answer,
-      role,
+      // role,
     }).save();
     // send response
     res.status(201).send({
@@ -217,6 +218,23 @@ export const updateProfileController = async (req, res) => {
     res.status(400).send({
       success: false,
       message: 'Error While Update profile',
+      error,
+    });
+  }
+};
+
+// ********************** OTP EMAIL CONTROLL *********************************
+// get all users
+export const getAllController = async (req, res) => {
+  try {
+    await userotp.find().then((users) => {
+      res.json(users);
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'Error While Geting Users',
       error,
     });
   }

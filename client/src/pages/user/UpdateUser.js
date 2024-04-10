@@ -79,7 +79,7 @@ const UpdateUser = () => {
             <div className="wrapp">
               {/* <div className="wrap2"> */}
               <form onSubmit={handleSubmit} action="">
-                <h1>Update Youe Details</h1>
+                <h1>Update Your Details</h1>
                 <div className="input-box">
                   <input
                     type="text"

@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/auth';
 import { ProjectGroupProvider } from './context/projectGroup';
+import { OtpEmailProvider } from './context/otpEmail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider>
     <ProjectGroupProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <OtpEmailProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </OtpEmailProvider>
     </ProjectGroupProvider>
   </AuthProvider>
 );

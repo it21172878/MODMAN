@@ -72,7 +72,7 @@ const OTPverifyForm = () => {
       <div className="wrapper">
         <div className="wrapper2">
           <form onSubmit={handleSubmit} action="">
-            <h5>Please Enter Your OTP Here</h5>
+            <h5 style={{ fontSize: '25px' }}>Please Enter Your OTP Here</h5>
             <div className="input-box">
               <input
                 type="text"

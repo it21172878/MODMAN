@@ -67,6 +67,7 @@ import { FaPhoneVolume } from 'react-icons/fa6';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useOtpEmailGroup } from '../../context/otpEmail';
 
 const Register = () => {
   const [userID, setUserID] = useState('');
@@ -77,6 +78,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [answer, setAnswer] = useState('');
   const navigate = useNavigate();
+  const [otpEmailAdd, setOtpEmailAdd] = useOtpEmailGroup();
+  // console.log(otpEmailAdd);
 
   // form function
   const handleSubmit = async (e) => {
@@ -85,7 +88,7 @@ const Register = () => {
       const res = await axios.post('/api/v1/auth/register', {
         userID,
         fullName,
-        email,
+        email: otpEmailAdd,
         nicNo,
         mobileNo,
         password,
@@ -132,7 +135,8 @@ const Register = () => {
             <div className="input-box">
               <input
                 type="email"
-                value={email}
+                // value={email}
+                value={otpEmailAdd}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 required

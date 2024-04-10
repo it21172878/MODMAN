@@ -32,6 +32,7 @@ const OTPform = () => {
       if (response.status === 200) {
         // setSpiner(false);
         toast.success(response.data.message);
+        localStorage.setItem('otpEmail', email);
         navigate('/verify-otp', { state: email });
       } else {
         toast.error(response.response.data.error);
@@ -97,7 +98,8 @@ const OTPform = () => {
       <div className="wrapper">
         <div className="wrapper2">
           <form onSubmit={sendOtp} action="">
-            <h5>Confirm Email Address</h5>
+            <h5 style={{ fontSize: '25px' }}>Confirm Email Address</h5>
+            {/* <label>Enter Your Email Address</label> */}
             <div className="input-box">
               <input
                 type="email"
@@ -110,14 +112,14 @@ const OTPform = () => {
             </div>
 
             <Button type="submit">Send OTP</Button>
-            <div className="login-link">
+            {/* <div className="login-link">
               <p>
                 have an account please{' '}
                 <Link to="/login" className="login">
                   login
                 </Link>
               </p>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
