@@ -16,10 +16,10 @@ const userOtpSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // isVerify: {
-  //   type: Boolean,
-  //   default: false,
-  // },
+  isVerify: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // user otp model

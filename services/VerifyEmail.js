@@ -4,7 +4,7 @@ import userotp from '../models/userOtp.js';
 // dotenv.config();
 
 export const verifyEmail = async (req, res) => {
-  const { otp, email } = req.body;
+  const { otp, email, isVerify } = req.body;
 
   if (!otp) {
     res.status(400).send({ error: 'Please Enter Your OTP' });
@@ -17,6 +17,16 @@ export const verifyEmail = async (req, res) => {
     console.log(otpverification);
 
     if (otpverification.otp === otp) {
+      // **********************4/11/2024
+      const updateData = await userotp.findByIdAndUpdate(
+        { _id: otpverification._id },
+        {
+          isVerify: true,
+        },
+        { new: true }
+      );
+      await updateData.save();
+      // **********************
       res
         .status(200)
         .send({ success: true, message: 'Email Varifycation Succesfully' });

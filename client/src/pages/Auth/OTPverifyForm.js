@@ -8,6 +8,7 @@ import axios from 'axios';
 
 const OTPverifyForm = () => {
   const [otp, setOtp] = useState('');
+  const [isVerify, setIsVerify] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -15,14 +16,17 @@ const OTPverifyForm = () => {
 
     if (otp === '') {
       toast.error('Enter Your Otp');
-    } else if (!/[^a-zA-Z]/.test(otp)) {
-      toast.error('Enter Valid Otp');
-    } else if (otp.length < 6) {
+    }
+    //  else if (!/[^a-zA-Z]/.test(otp)) {
+    //   toast.error('Enter Valid Otp');
+    // }
+    else if (otp.length < 6) {
       toast.error('Otp Length minimum 6 digit');
     } else {
       const data = {
         otp,
         email: location.state,
+        isVerify: isVerify,
       };
       console.log(data);
 
@@ -74,6 +78,7 @@ const OTPverifyForm = () => {
           <form onSubmit={handleSubmit} action="">
             <h5 style={{ fontSize: '25px' }}>Please Enter Your OTP Here</h5>
             <div className="input-box">
+              <label>OTP Number</label>
               <input
                 type="text"
                 value={otp}

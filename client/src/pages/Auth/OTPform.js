@@ -101,6 +101,7 @@ const OTPform = () => {
             <h5 style={{ fontSize: '25px' }}>Confirm Email Address</h5>
             {/* <label>Enter Your Email Address</label> */}
             <div className="input-box">
+              <label>Email</label>
               <input
                 type="email"
                 value={email}

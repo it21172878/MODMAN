@@ -68,6 +68,7 @@ import { RiLockPasswordFill } from 'react-icons/ri';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useOtpEmailGroup } from '../../context/otpEmail';
+import Button from '../../components/Button';
 
 const Register = () => {
   const [userID, setUserID] = useState('');
@@ -113,6 +114,7 @@ const Register = () => {
           <form onSubmit={handleSubmit} action="">
             <h1>Register</h1>
             <div className="input-box">
+              <label>User ID</label>
               <input
                 type="text"
                 value={userID}
@@ -123,6 +125,7 @@ const Register = () => {
               <HiIdentification className="icon" />
             </div>
             <div className="input-box">
+              <label>Full Name</label>
               <input
                 type="text"
                 value={fullName}
@@ -133,6 +136,7 @@ const Register = () => {
               <FaUser className="icon" />
             </div>
             <div className="input-box">
+              <label>Email</label>
               <input
                 type="email"
                 // value={email}
@@ -144,6 +148,7 @@ const Register = () => {
               <MdEmail className="icon" />
             </div>
             <div className="input-box">
+              <label>National Identity Number</label>
               <input
                 type="text"
                 value={nicNo}
@@ -154,6 +159,7 @@ const Register = () => {
               <PiIdentificationBadgeFill className="icon" />
             </div>
             <div className="input-box">
+              <label>Mobile Number</label>
               <input
                 type="text"
                 value={mobileNo}
@@ -164,6 +170,7 @@ const Register = () => {
               <FaPhoneVolume className="icon" />
             </div>
             <div className="input-box">
+              <label>Password</label>
               <input
                 type="password"
                 value={password}
@@ -174,6 +181,7 @@ const Register = () => {
               <RiLockPasswordFill className="icon" />
             </div>
             <div className="input-box">
+              <label>What is your favourite color?</label>
               <input
                 type="text"
                 value={answer}
@@ -183,7 +191,8 @@ const Register = () => {
               ></input>
               <RiLockPasswordFill className="icon" />
             </div>
-            <button type="submit">Register</button>
+            {/* <button type="submit">Register</button> */}
+            <Button type="submit">Sign Up</Button>
             <div className="login-link">
               <p>
                 have an account please{' '}

@@ -50,6 +50,7 @@ const Login = () => {
             <h1>Login</h1>
 
             <div className="input-box">
+              <label>Email</label>
               <input
                 type="email"
                 value={email}
@@ -61,6 +62,7 @@ const Login = () => {
             </div>
 
             <div className="input-box">
+              <label>Password</label>
               <input
                 type="password"
                 value={password}
@@ -98,14 +100,14 @@ const Login = () => {
             {/* <button type="submit">Login</button> */}
             <Button>Login</Button>
 
-            {/* <div className="login-link">
+            <div className="login-link">
               <p>
                 you have not an account please{' '}
-                <Link to="/register" className="login">
+                <Link to="/sendotp" className="login">
                   Register
                 </Link>
               </p>
-            </div> */}
+            </div>
           </form>
         </div>
       </div>

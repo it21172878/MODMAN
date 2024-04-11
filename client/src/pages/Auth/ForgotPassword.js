@@ -43,6 +43,7 @@ const ForgotPasssword = () => {
             <h1 className="title">Reset Password</h1>
 
             <div className="input-box">
+              <label>Email</label>
               <input
                 type="email"
                 value={email}
@@ -53,17 +54,19 @@ const ForgotPasssword = () => {
               <MdEmail className="icon" />
             </div>
             <div className="input-box">
+              <label>What is your favourite color?</label>
               <input
                 type="text"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
-                placeholder="Enter your favourite color"
+                placeholder="Enter you given color while register"
                 required
               ></input>
               <MdEmail className="icon" />
             </div>
 
             <div className="input-box">
+              <label>New Password</label>
               <input
                 type="password"
                 value={newPassword}
