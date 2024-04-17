@@ -1,0 +1,7 @@
+.cardDesign label {
+  font-size: 15px;
+}
+.cardDesign label:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

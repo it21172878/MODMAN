@@ -7,7 +7,9 @@ import {
   addItem,
   downloadFile,
   getItems,
+  submitDocument,
 } from '../controllers/assignmentController.js';
+import submit from '../middlewares/submitDocumentMiddleware.js';
 
 // const { getItems, addItem, downloadFile } = require('../controllers/items');
 
@@ -15,6 +17,8 @@ const router = express.Router();
 
 router.route('/').get(getItems).post(upload.single('file'), addItem);
 router.route('/download/:id').get(downloadFile);
+// User Submit They Assignments Document Route
+router.route('/submit').post(submit.single('file'), submitDocument);
 
 // module.exports = router;
 export default router;

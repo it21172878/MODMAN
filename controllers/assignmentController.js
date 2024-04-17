@@ -1,6 +1,7 @@
 import createAssignment from './../models/createAssignment.js';
 import path from 'path';
 import asyncWrapper from '../middlewares/asyncWrapper.js';
+import submitAssignment from '../models/submitAssignment.js';
 
 // const Item = require('../models/Item');
 // const path = require('path');
@@ -54,6 +55,29 @@ export const downloadFile = asyncWrapper(async (req, res) => {
   // const filePath = path.join(__dirname, `../${file}`);
   const filePath = path.join(__dirname, `/${file}`);
   res.download(filePath);
+});
+
+// ==================User Submit They Assignments Document Controller==================
+export const submitDocument = asyncWrapper(async (req, res) => {
+  try {
+    const file = req.file.path;
+    const item = await submitAssignment.create({
+      file,
+    });
+    // res.status(201).json({ item });
+    res.status(201).send({
+      success: true,
+      message: 'Assignment Submitted Successfully',
+      data: item,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'Error in Assignment Submition',
+      error,
+    });
+  }
 });
 
 // module.exports = {

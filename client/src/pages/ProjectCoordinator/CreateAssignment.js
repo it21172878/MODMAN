@@ -5,7 +5,6 @@ import ProjectCoordinatorMenu from '../../components/Layout/ProjectCoordinatorMe
 import axios from 'axios';
 // import toast from 'react-hot-toast';
 import { HiIdentification } from 'react-icons/hi2';
-import { MdEmail } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
@@ -116,7 +115,7 @@ const CreateAssignment = () => {
                     // value={fileInputRef}
                     ref={fileInputRef}
                     // onChange={(e) => setFile(e.target.value)}
-                    placeholder="Email"
+                    placeholder="File"
                     required
                   ></input>
                   {/* <MdEmail className="icon" /> */}
