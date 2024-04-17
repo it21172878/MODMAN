@@ -34,6 +34,7 @@ import ProjectCoordinatorProfile from './pages/ProjectCoordinator/ProjectCoordin
 import UpdateProjectCoordinator from './pages/ProjectCoordinator/UpdateProjectCoordinator';
 import OTPform from './pages/Auth/OTPform';
 import OTPverifyForm from './pages/Auth/OTPverifyForm';
+import CreateAssignment from './pages/ProjectCoordinator/CreateAssignment';
 
 function App({ child }) {
   return (
@@ -90,6 +91,10 @@ function App({ child }) {
           <Route
             path="projectCoordinator/all-students"
             element={<Students />}
+          />
+          <Route
+            path="projectCoordinator/create-assignment"
+            element={<CreateAssignment />}
           />
         </Route>
         <Route path="/dashboard" element={<SupervisorRoute />}>

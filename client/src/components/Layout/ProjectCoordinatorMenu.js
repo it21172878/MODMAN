@@ -51,6 +51,12 @@ const ProjectCoordinatorMenu = () => {
           >
             Students
           </NavLink>
+          <NavLink
+            to="/dashboard/projectCoordinator/create-assignment"
+            className="list-group-item list-group-item-action "
+          >
+            Create New Assignment
+          </NavLink>
         </div>
       </div>
     </>
