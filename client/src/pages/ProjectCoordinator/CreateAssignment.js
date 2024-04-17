@@ -7,6 +7,7 @@ import axios from 'axios';
 import { HiIdentification } from 'react-icons/hi2';
 import { MdEmail } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 const CreateAssignment = () => {
   const [items, setItems] = useState([]);
@@ -15,6 +16,7 @@ const CreateAssignment = () => {
   const [moduleCode, setModuleCode] = useState('');
   const [assignmentTitle, setAssignmentTitle] = useState('');
   const fileInputRef = useRef(null);
+  const [deadline, setDeadline] = useState('');
 
   const getItems = async () => {
     setLoading(true);
@@ -36,14 +38,17 @@ const CreateAssignment = () => {
       formData.append('moduleCode', moduleCode);
       formData.append('assignmentTitle', assignmentTitle);
       formData.append('file', fileInputRef.current.files[0]);
+      formData.append('deadline', deadline);
       const res = await axios.post('/api/v1/assignment', formData);
       // const res = await axios.post(
       //   'http://localhost:8585/api/v1/items',
       //   formData
       // );
       console.log(res);
+      toast.success(res.data.message);
     } catch (error) {
       console.log(error);
+      toast.error('Something went wrong');
     }
   };
 
@@ -82,6 +87,7 @@ const CreateAssignment = () => {
               {/* <div className="wrap2"> */}
               <form onSubmit={addItem} action="">
                 <h1>Create Assignment</h1>
+                <label>Enter module code</label>
                 <div className="input-box">
                   <input
                     type="text"
@@ -92,6 +98,7 @@ const CreateAssignment = () => {
                   ></input>
                   <HiIdentification className="icon" />
                 </div>
+                <label>Assignment title</label>
                 <div className="input-box">
                   <input
                     type="text"
@@ -102,7 +109,8 @@ const CreateAssignment = () => {
                   ></input>
                   <FaUser className="icon" />
                 </div>
-                <div className="input-box">
+                <label>Choose assignment document</label>
+                <div className="">
                   <input
                     type="file"
                     // value={fileInputRef}
@@ -111,11 +119,22 @@ const CreateAssignment = () => {
                     placeholder="Email"
                     required
                   ></input>
-                  <MdEmail className="icon" />
+                  {/* <MdEmail className="icon" /> */}
+                </div>
+                <label>Give a deadline for assignment</label>
+                <div className="input-box">
+                  <input
+                    type="text"
+                    value={deadline}
+                    onChange={(e) => setDeadline(e.target.value)}
+                    placeholder="deadline"
+                    required
+                  ></input>
+                  <FaUser className="icon" />
                 </div>
 
                 {/* <button type="submit">Register</button> */}
-                <Button>Create New User</Button>
+                <Button>Create Assignment</Button>
                 {/* <div className="login-link">
               <p>
                 have an account please{' '}
@@ -125,20 +144,58 @@ const CreateAssignment = () => {
               </p>
             </div> */}
               </form>
-              {/* ================================================ */}
-              <div className="items">
-                {items &&
-                  items.map((item) => (
-                    <div className="item" key={item._id}>
-                      <h3>{item.name}</h3>
-                      <button onClick={() => downloadFile(item._id)}>
-                        Download File
-                      </button>
-                    </div>
-                  ))}
-              </div>
-              {/* ================================================ */}
             </div>
+            {/* ================================================ */}
+            {/* <div className="items">
+              {items &&
+                items.map((item) => (
+                  <div className="item" key={item._id}>
+                    <h3>{item.assignmentTitle}</h3>
+                    <button onClick={() => downloadFile(item._id)}>
+                      Download File
+                    </button>
+                  </div>
+                ))}
+            </div> */}
+
+            <table class="container" style={{ width: '100%' }}>
+              <thead>
+                <tr>
+                  <th>
+                    <h1>Module Code</h1>
+                  </th>
+                  <th>
+                    <h1>Assignment Title</h1>
+                  </th>
+                  <th>
+                    <h1>Documents</h1>
+                  </th>
+                  <th>
+                    <h1>Deadline</h1>
+                  </th>
+                </tr>
+              </thead>
+              {items?.map((item, index) => {
+                // if (item.specialization === projectGroup) {
+                return (
+                  <tbody>
+                    <tr key={index}>
+                      <td>{item.moduleCode}</td>
+                      <td>{item.assignmentTitle}</td>
+                      <td>
+                        <label onClick={() => downloadFile(item._id)}>
+                          Download File
+                        </label>
+                      </td>
+                      <td>{item.deadline}</td>
+                    </tr>
+                  </tbody>
+                );
+                // }
+              })}
+            </table>
+
+            {/* ================================================ */}
           </div>
         </div>
       </div>

@@ -16,15 +16,31 @@ export const getItems = async (req, res) => {
 };
 
 export const addItem = asyncWrapper(async (req, res) => {
-  const { moduleCode } = req.body;
-  const { assignmentTitle } = req.body;
-  const file = req.file.path;
-  const item = await createAssignment.create({
-    moduleCode,
-    assignmentTitle,
-    file,
-  });
-  res.status(201).json({ item });
+  try {
+    const { moduleCode } = req.body;
+    const { assignmentTitle } = req.body;
+    const file = req.file.path;
+    const { deadline } = req.body;
+    const item = await createAssignment.create({
+      moduleCode,
+      assignmentTitle,
+      file,
+      deadline,
+    });
+    // res.status(201).json({ item });
+    res.status(201).send({
+      success: true,
+      message: 'Assignment Created Successfully',
+      data: item,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'Error in Assignment Creat',
+      error,
+    });
+  }
 });
 
 export const downloadFile = asyncWrapper(async (req, res) => {

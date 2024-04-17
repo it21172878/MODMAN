@@ -103,7 +103,7 @@
 } */
 
 .main {
-  display: flex;
+  display: block;
   justify-content: center;
 }
 .wrapp {

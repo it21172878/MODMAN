@@ -13,6 +13,9 @@ const createAssignmenrSchema = new mongoose.Schema(
     file: {
       type: String,
     },
+    deadline: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
