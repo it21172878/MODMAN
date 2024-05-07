@@ -6,8 +6,14 @@ import Card from 'react-bootstrap/Card';
 import './MyAssignment.css';
 import Button from '../../components/Button';
 import toast from 'react-hot-toast';
+import Popup from '../../components/Layout/Popup';
+import { MdEmail } from 'react-icons/md';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MyAssignment = () => {
+  // btn popup
+  const [buttonPopup, setButtonPopup] = useState(false);
+  const [verifyPopup, setVerifyPopup] = useState(false);
   const [items, setItems] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
@@ -15,6 +21,80 @@ const MyAssignment = () => {
   // const [assignmentTitle, setAssignmentTitle] = useState('');
   const fileInputRef = useRef(null);
   // const [deadline, setDeadline] = useState('');
+
+  // ======================================================================================
+
+  const [otp, setOtp] = useState('');
+  const [isVerify, setIsVerify] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (otp === '') {
+      toast.error('Enter Your Otp');
+    }
+    //  else if (!/[^a-zA-Z]/.test(otp)) {
+    //   toast.error('Enter Valid Otp');
+    // }
+    else if (otp.length < 6) {
+      toast.error('Otp Length minimum 6 digit');
+    } else {
+      const data = {
+        otp,
+        email: location.state,
+        isVerify: isVerify,
+      };
+      console.log(data);
+
+      const response = await axios.post('/api/v1/otpemail/verifyEmail', data);
+      if (response.status === 200) {
+        // localStorage.setItem('userdbtoken', response.data.userToken);
+        toast.success(response.data.message);
+        setTimeout(() => {
+          navigate('/dashboard/user/assignment');
+        }, 3000);
+      } else {
+        toast.error(response.data.message);
+      }
+    }
+  };
+
+  const [email, setEmail] = useState('');
+  // const [spiner, setSpiner] = useState(false);
+
+  // const navigate = useNavigate();
+
+  // sendotp
+  const sendOtp = async (e) => {
+    e.preventDefault();
+
+    if (email === '') {
+      toast.error('Enter Your Email !');
+    } else if (!email.includes('@')) {
+      toast.error('Enter Valid Email !');
+    } else {
+      // setSpiner(true);
+      const data = {
+        email: email,
+      };
+
+      const response = await axios.post('/api/v1/otpemail/sendEmail', data);
+      console.log(response);
+
+      if (response.status === 200) {
+        // setSpiner(false);
+        toast.success(response.data.message);
+        localStorage.setItem('otpEmail', email);
+        // navigate('/verify-otp', { state: email });
+        // navigate('/verify-otp', { state: email });
+        navigate({ state: email });
+      } else {
+        toast.error(response.response.data.error);
+      }
+    }
+  };
+  // ======================================================================================
 
   const submitAssignmentDoc = async (e) => {
     e.preventDefault();
@@ -107,7 +187,67 @@ const MyAssignment = () => {
                       <Card.Text>
                         <input type="file" ref={fileInputRef}></input>
                       </Card.Text>
-                      <Button onClick={submitAssignmentDoc}>submit</Button>
+                      {/* <Button onClick={submitAssignmentDoc}>submit</Button> */}
+                      <Button onClick={() => setButtonPopup(true)}>
+                        submit
+                      </Button>
+                      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                        <h1>Popup</h1>
+                        <form onSubmit={sendOtp} action="">
+                          <h5 style={{ fontSize: '25px' }}>
+                            Confirm Email Address
+                          </h5>
+                          {/* <label>Enter Your Email Address</label> */}
+                          <div className="input-box">
+                            <label>Email</label>
+                            <input
+                              type="email"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Email"
+                              required
+                            ></input>
+                            <MdEmail className="icon" />
+                          </div>
+
+                          <Button
+                            // type="submit"
+                            onClick={() => setVerifyPopup(true)}
+                          >
+                            Send OTP
+                          </Button>
+                        </form>
+                      </Popup>
+                      <Popup trigger={verifyPopup} setTrigger={setVerifyPopup}>
+                        <form onSubmit={handleSubmit} action="">
+                          <h5 style={{ fontSize: '25px' }}>
+                            Please Enter Your OTP Here
+                          </h5>
+                          <div className="input-box">
+                            <label>OTP Number</label>
+                            <input
+                              type="text"
+                              value={otp}
+                              onChange={(e) => setOtp(e.target.value)}
+                              placeholder="enter your OTP code here"
+                              required
+                            ></input>
+                            <MdEmail className="icon" />
+                          </div>
+
+                          <Button type="submit" onClick={submitAssignmentDoc}>
+                            Verify Email
+                          </Button>
+                          {/* <div className="login-link">
+              <p>
+                have an account please{' '}
+                <Link to="/login" className="login">
+                  login
+                </Link>
+              </p>
+            </div> */}
+                        </form>
+                      </Popup>
                     </div>
                   </Card.Body>
                 </Card>
